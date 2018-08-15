@@ -6,18 +6,18 @@
     <description>Recent content in Posts on My New Hugo Site</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Wed, 15 Aug 2018 12:00:30 +0300</lastBuildDate>
+    <lastBuildDate>Mon, 26 Jun 2017 13:08:07 +0300</lastBuildDate>
     
 	<atom:link href="http://dtolpin.github.io/posts/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
-      <title>Welcome</title>
-      <link>http://dtolpin.github.io/posts/welcome/</link>
-      <pubDate>Wed, 15 Aug 2018 12:00:30 +0300</pubDate>
+      <title>On Brain Teasers at Job Interviews</title>
+      <link>http://dtolpin.github.io/posts/on-brain-teasers/</link>
+      <pubDate>Mon, 26 Jun 2017 13:08:07 +0300</pubDate>
       
-      <guid>http://dtolpin.github.io/posts/welcome/</guid>
-      <description>New offtopia web site</description>
+      <guid>http://dtolpin.github.io/posts/on-brain-teasers/</guid>
+      <description>I went to a few job interviews during past weeks. Most interviewers asked me to tell about problems I had solved, and to suggest a solution to a problem they really needed to solve. Some though offered me to solve brain teasers — problems they (or others) invented to test candidates. I solved most, but I felt bad about it. I can imagine many bright candidates who would fail an interview because of brain teasers.</description>
     </item>
     
   </channel>
