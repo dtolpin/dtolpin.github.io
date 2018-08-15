@@ -6,10 +6,20 @@
     <description>Recent content in Posts on Offtopia</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Mon, 26 Jun 2017 13:08:07 +0300</lastBuildDate>
+    <lastBuildDate>Mon, 09 Apr 2018 14:19:13 +0300</lastBuildDate>
     
 	<atom:link href="http://dtolpin.github.io/posts/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>How to Hug a Data Scientist</title>
+      <link>http://dtolpin.github.io/posts/how-to-hug/</link>
+      <pubDate>Mon, 09 Apr 2018 14:19:13 +0300</pubDate>
+      
+      <guid>http://dtolpin.github.io/posts/how-to-hug/</guid>
+      <description>Sometimes, a data scientist is the first engineer in a software project. More often though a data scientist joins the team when there is working code, ready for deploying or even deployed. Here is how the latter case rolls out:
+ We write a piece of software. Thanks to continous delivery, we fix our bugs quickly and release new improved versions on time. Our code is fully tested, easy to change, and pieces fit each other smoothly.</description>
+    </item>
     
     <item>
       <title>On Brain Teasers at Job Interviews</title>
