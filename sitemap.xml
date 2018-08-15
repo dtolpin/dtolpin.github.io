@@ -13,6 +13,10 @@
   </url>
   
   <url>
+    <loc>http://dtolpin.github.io/about/</loc>
+  </url>
+  
+  <url>
     <loc>http://dtolpin.github.io/categories/</loc>
     <priority>0</priority>
   </url>

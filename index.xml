@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Offtopia</title>
+    <title>Offtopia — nothing personal</title>
     <link>http://dtolpin.github.io/</link>
-    <description>Recent content on Offtopia</description>
+    <description>Recent content on Offtopia — nothing personal</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Mon, 09 Apr 2018 14:19:13 +0300</lastBuildDate>
@@ -28,6 +28,17 @@
       
       <guid>http://dtolpin.github.io/posts/on-brain-teasers/</guid>
       <description>I went to a few job interviews during past weeks. Most interviewers asked me to tell about problems I had solved, and to suggest a solution to a problem they really needed to solve. Some though offered me to solve brain teasers — problems they (or others) invented to test candidates. I solved most, but I felt bad about it. I can imagine many bright candidates who would fail an interview because of brain teasers.</description>
+    </item>
+    
+    <item>
+      <title>About</title>
+      <link>http://dtolpin.github.io/about/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>http://dtolpin.github.io/about/</guid>
+      <description>Offtopia is a non-personal blog of David Tolpin.
+Alter Ego linkedin | github | google scholar
+Work  PUB+  Contact  david.tolpin@gmail.com  Legacy Old blog</description>
     </item>
     
   </channel>

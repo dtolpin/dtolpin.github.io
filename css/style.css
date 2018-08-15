@@ -7,9 +7,36 @@
   max-width: 100%;
 }
 
+
+/* blockquote should stand out */
+.blog-post-title {
+    font-family: sans-serif;
+    text-transform: uppercase;
+    font-size: 240%;
+}
+
+.blog-post .blog-post-title {
+    text-transform: none;
+    font-family: serif;
+    font-size: 200%;
+}
+
+.blog-post {
+    font-family: serif;
+}
+
 .blog-post blockquote  {
     padding-left: 5%;
     border-left: 2pt solid #ccc;
     font-size: 96%;
     color: #333;
+}
+
+.blog-post h2 {
+    font-variant: small-caps;
+    color: #258;
+}
+
+.blog-post h3 {
+    color: #258;
 }
