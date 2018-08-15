@@ -6,3 +6,10 @@
 .blog-post img {
   max-width: 100%;
 }
+
+.blog-post blockquote  {
+    padding-left: 5%;
+    border-left: 2pt solid #ccc;
+    font-size: 96%;
+    color: #333;
+}
