@@ -21,6 +21,18 @@
     font-size: 200%;
 }
 
+.blog-post-subtitle {
+    text-transform: none;
+	color: black;
+    font-family: sans-serif;
+}
+
+.blog-post .blog-post-subtitle {
+    text-transform: none;
+	color: black;
+    font-family: serif;
+}
+
 .blog-post {
     font-family: serif;
 }
