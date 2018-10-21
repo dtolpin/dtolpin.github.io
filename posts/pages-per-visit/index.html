@@ -7,16 +7,24 @@
 
 <meta property="og:title" content="A Small Program Can Be a Big Challenge" />
 <meta property="og:description" content="[Poster: html, pdf]
+<<<<<<< HEAD
 A good part of today&rsquo;s internet content is created and shaped for delivering advertisements. Internet pages are interconnected by links, and a visitor is likely to open multiple pages. After a while, visitors leave the web site, either due to clicking on an advertisement or just because they get bored and switch to other content or activity.
 The probability distribution of the session depth — the number of pages opened during a single visit — is an important metric for the publisher." />
+=======
+A good part of today&rsquo;s internet content is created and shaped for delivering advertisements. Internet articles are split into pages stitched by forward links, so that the visitor reads the article in multiple steps in a fixed order, and advertisements can be shown on every page. In a lucky case for the publisher, the visitor clicks through the full article, eventually reaching the last page. Most visitors though leave in the middle of an article, either due to clicking on an advertising or just because they get bored and switch to other content or activity." />
+>>>>>>> 720dd05b26e6c64681d8879fd2a319f9ae10db9a
 <meta property="og:type" content="article" />
 <meta property="og:url" content="http://dtolpin.github.io/posts/pages-per-visit/" /><meta property="article:published_time" content="2018-08-15T22:49:53&#43;03:00"/>
 <meta property="article:modified_time" content="2018-08-15T22:49:53&#43;03:00"/>
 <meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="A Small Program Can Be a Big Challenge"/>
 <meta name="twitter:description" content="[Poster: html, pdf]
+<<<<<<< HEAD
 A good part of today&rsquo;s internet content is created and shaped for delivering advertisements. Internet pages are interconnected by links, and a visitor is likely to open multiple pages. After a while, visitors leave the web site, either due to clicking on an advertisement or just because they get bored and switch to other content or activity.
 The probability distribution of the session depth — the number of pages opened during a single visit — is an important metric for the publisher."/>
+=======
+A good part of today&rsquo;s internet content is created and shaped for delivering advertisements. Internet articles are split into pages stitched by forward links, so that the visitor reads the article in multiple steps in a fixed order, and advertisements can be shown on every page. In a lucky case for the publisher, the visitor clicks through the full article, eventually reaching the last page. Most visitors though leave in the middle of an article, either due to clicking on an advertising or just because they get bored and switch to other content or activity."/>
+>>>>>>> 720dd05b26e6c64681d8879fd2a319f9ae10db9a
 
 
 
@@ -78,7 +86,13 @@ The probability distribution of the session depth — the number of pages opened
     <h2 class="blog-post-title">
         <a class="text-dark" href="/posts/pages-per-visit/">A Small Program Can Be a Big Challenge</a>
     </h2>
+<<<<<<< HEAD
 	<h3 class="blog-post-subtitle">A probabilistic model for session depth estimation</h3>
+=======
+    
+    <h3 class="blog-post-subtitle">A probabilistic model for pages-per-visit</h3>
+    
+>>>>>>> 720dd05b26e6c64681d8879fd2a319f9ae10db9a
     
 
 
@@ -100,6 +114,7 @@ The probability distribution of the session depth — the number of pages opened
 
 <p>[Poster: <a href="http://offtopia.net/ppv-pp-poster/">html</a>, <a href="http://offtopia.net/ppv-pp-poster/poster.pdf">pdf</a>]</p>
 
+<<<<<<< HEAD
 <p>A good part of today&rsquo;s internet content is created and shaped
 for delivering advertisements. Internet pages are interconnected
 by links, and a visitor is likely to open multiple pages. After a
@@ -135,6 +150,41 @@ dependencies in an initial approximation. One phenomenon should
 be accounted for though &mdash; content managers occasionally change
 links between pages as well as the content. The posterior
 distribution should incorporate uncertainty due to such changes.</p>
+=======
+<p>A good part of today&rsquo;s internet content is created and shaped for delivering
+advertisements. Internet articles are split into pages stitched by forward
+links, so that the visitor reads the article in multiple steps in a fixed
+order, and advertisements can be shown on every page. In a lucky case
+for the publisher, the visitor clicks through the full article, eventually
+reaching the last page. Most visitors though leave in the middle of an article,
+either due to clicking on an advertising or just because they get bored
+and switch to other content or activity.</p>
+
+<p>The distribution of the number of pages per visit is an important
+metric for the publisher. It is used to both estimate revenues
+from the advertising campaign and to optimize the article: order
+of pages, page content, and advertisements appearing on each
+page. Pages per visit constitute a counting time series.
+There are established techniques for forecasting in counting time
+series, however those techniques are mostly based on assumption
+that the time series realizes a unimodal distribution at
+every point in time, such as the <a href="https://en.wikipedia.org/wiki/Poisson_distribution">Poisson</a> or the <a href="https://en.wikipedia.org/wiki/Geometric_distribution">Geometric
+distribution</a>. This assumption is inadequate for pages-per-visit
+time series: there are usually several points in the article
+where the visitor is very likely to leave; this commands a
+multi-modal predictive distribution.</p>
+
+<p>A sequence of <a href="https://en.wikipedia.org/wiki/Beta-binomial_distribution">Beta-Bernoulli distributions</a>, one for each page,
+gives a reasonable generative model for the number of pages per
+visit. There are of course dependencies between pages &mdash; a user
+which is likely to leave on a certain page is also likely to
+leave on &lsquo;similar&rsquo; pages, &mdash; but we can ignore these
+dependencies in an initial approximation. One phenomenon
+should be accounted for though &mdash; content managers
+occasionally change the order and content of pages. The
+posterior distribution should incorporate uncertainty due
+to such changes.</p>
+>>>>>>> 720dd05b26e6c64681d8879fd2a319f9ae10db9a
 
 <h2 id="the-generative-model-of-a-visit">The Generative Model of a Visit</h2>
 
