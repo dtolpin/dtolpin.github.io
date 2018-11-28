@@ -6,10 +6,20 @@
     <description>Recent content on Offtopia — nothing personal</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Wed, 15 Aug 2018 22:49:53 +0300</lastBuildDate>
+    <lastBuildDate>Wed, 28 Nov 2018 18:19:13 +0200</lastBuildDate>
     
 	<atom:link href="http://dtolpin.github.io/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Go Programs That Learn</title>
+      <link>http://dtolpin.github.io/posts/infergo/</link>
+      <pubDate>Wed, 28 Nov 2018 18:19:13 +0200</pubDate>
+      
+      <guid>http://dtolpin.github.io/posts/infergo/</guid>
+      <description>There are so many probabilistic programming languages that it is hard to choose one. Because it is so hard to choose one, a probabilistic programmer has two options:
+ invent a new probabilistic programming language, or write probabilistic programs in a regular programming language.  The former choice is easier to make, that&amp;rsquo;s why there are so many different probabilistic programming languages. But writing programs is so much easier in a regular language, and programs in regular languages can do many useful things.</description>
+    </item>
     
     <item>
       <title>A Small Program Can Be a Big Challenge</title>
