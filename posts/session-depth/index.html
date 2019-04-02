@@ -10,8 +10,10 @@
 A good part of today&rsquo;s internet content is created and shaped for delivering advertisements. Internet pages are interconnected by links, and a visitor is likely to open multiple pages from the same publisher. After a while, visitors leave the web site, either due to clicking on an advertisement or just because they get bored and switch to other content or activity.
 The probability distribution of the session depth — the number of pages opened during a single visit — is an important metric for the publisher." />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="http://dtolpin.github.io/posts/session-depth/" /><meta property="article:published_time" content="2018-08-15T22:49:53&#43;03:00"/>
+<meta property="og:url" content="http://dtolpin.github.io/posts/session-depth/" />
+<meta property="article:published_time" content="2018-08-15T22:49:53&#43;03:00"/>
 <meta property="article:modified_time" content="2018-08-15T22:49:53&#43;03:00"/>
+
 <meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="A Small Program Can Be a Big Challenge"/>
 <meta name="twitter:description" content="[Poster: html, pdf]
@@ -78,7 +80,9 @@ The probability distribution of the session depth — the number of pages opened
     <h2 class="blog-post-title">
         <a class="text-dark" href="/posts/session-depth/">A Small Program Can Be a Big Challenge</a>
     </h2>
-	<h3 class="blog-post-subtitle">A probabilistic model for session depth estimation</h3>
+    
+    <h3 class="blog-post-subtitle">A probabilistic model for session depth estimation</h3>
+    
     
 
 
@@ -342,7 +346,7 @@ implementation came out amazingly lean and simple:</p>
 </span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">21
 </span></code></pre></td>
 <td style="vertical-align:top;padding:0;margin:0;border:0;">
-<pre style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-go" data-lang="go"><span style="color:#007020;font-weight:bold">func</span> (m <span style="color:#666">*</span>Model) Update(bandwidth <span style="color:#902000">float64</span>, count <span style="color:#902000">int</span>) {
+<pre style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-go" data-lang="go"><span style="color:#007020;font-weight:bold">func</span> (m <span style="color:#666">*</span>Model) <span style="color:#06287e">Update</span>(bandwidth <span style="color:#902000">float64</span>, count <span style="color:#902000">int</span>) {
     <span style="color:#007020;font-weight:bold">for</span> i <span style="color:#666">:=</span> <span style="color:#40a070">0</span>; i <span style="color:#666">!=</span> <span style="color:#007020">len</span>(m.Beliefs); i<span style="color:#666">++</span> {
         <span style="color:#007020;font-weight:bold">var</span> j <span style="color:#902000">int</span> <span style="color:#60a0b0;font-style:italic">// selects either alpha or beta
 </span><span style="color:#60a0b0;font-style:italic"></span>        <span style="color:#007020;font-weight:bold">if</span> i &lt; count<span style="color:#666">-</span><span style="color:#40a070">1</span> {
@@ -388,14 +392,14 @@ implementation came out amazingly lean and simple:</p>
 </span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">12
 </span></code></pre></td>
 <td style="vertical-align:top;padding:0;margin:0;border:0;">
-<pre style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-go" data-lang="go"><span style="color:#007020;font-weight:bold">func</span> MH(query Query, proposal Proposal, x <span style="color:#902000">float64</span>, samples <span style="color:#007020;font-weight:bold">chan</span><span style="color:#666">&lt;-</span> <span style="color:#902000">float64</span>) {
-    logp <span style="color:#666">:=</span> query.Observe(x)
+<pre style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-go" data-lang="go"><span style="color:#007020;font-weight:bold">func</span> <span style="color:#06287e">MH</span>(query Query, proposal Proposal, x <span style="color:#902000">float64</span>, samples <span style="color:#007020;font-weight:bold">chan</span><span style="color:#666">&lt;-</span> <span style="color:#902000">float64</span>) {
+    logp <span style="color:#666">:=</span> query.<span style="color:#06287e">Observe</span>(x)
     <span style="color:#007020;font-weight:bold">for</span> {
         samples <span style="color:#666">&lt;-</span> x
         x0, logp0 <span style="color:#666">:=</span> x, logp
-        x = proposal.Propose(x)
-        logp = query.Observe(x)
-        <span style="color:#007020;font-weight:bold">if</span> logp<span style="color:#666">-</span>logp0 &lt; math.Log(<span style="color:#40a070">1.</span><span style="color:#666">-</span>rand.Float64()) {
+        x = proposal.<span style="color:#06287e">Propose</span>(x)
+        logp = query.<span style="color:#06287e">Observe</span>(x)
+        <span style="color:#007020;font-weight:bold">if</span> logp<span style="color:#666">-</span>logp0 &lt; math.<span style="color:#06287e">Log</span>(<span style="color:#40a070">1.</span><span style="color:#666">-</span>rand.<span style="color:#06287e">Float64</span>()) {
             x, logp = x0, logp0
         }
     }
@@ -461,6 +465,10 @@ for probabilistic programming.</li>
         </li>
         
         <li>
+            <a href="/posts/">Posts</a>
+        </li>
+        
+        <li>
             <a href="/posts/session-depth/">A Small Program Can Be a Big Challenge</a>
         </li>
         
@@ -470,10 +478,6 @@ for probabilistic programming.</li>
         
         <li>
             <a href="/posts/on-brain-teasers/">On Brain Teasers at Job Interviews</a>
-        </li>
-        
-        <li>
-            <a href="/posts/">Posts</a>
         </li>
         
     </ol>
