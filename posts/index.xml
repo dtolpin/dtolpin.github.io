@@ -6,10 +6,20 @@
     <description>Recent content in Posts on Offtopia — nothing personal</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Wed, 28 Nov 2018 18:19:13 +0200</lastBuildDate>
+    <lastBuildDate>Tue, 02 Apr 2019 10:19:13 +0300</lastBuildDate>
     
 	<atom:link href="http://dtolpin.github.io/posts/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>A Go Transgression</title>
+      <link>http://dtolpin.github.io/posts/goid/</link>
+      <pubDate>Tue, 02 Apr 2019 10:19:13 +0300</pubDate>
+      
+      <guid>http://dtolpin.github.io/posts/goid/</guid>
+      <description>Go gives the programmer introspection into every aspect of the language, and of a running program. But to one thing the programmer does not have access, and it is the goroutine identifier. Because the day the programmers know the goroutine identifier, they create goroutine-local storage through shared access and mutexes, and shall surely die.
+In Infergo, I had to have goroutine-local storage. Here is how I got efficient goroutine-local storage in Go.</description>
+    </item>
     
     <item>
       <title>Go Programs That Learn</title>
