@@ -1,0 +1,338 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+<meta http-equiv="x-ua-compatible" content="ie=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+<meta property="og:title" content="Gaussian process regression with varying noise" />
+<meta property="og:description" content="In Gaussian process regression for time series forecasting, all observations are assumed to have the same noise. When this assumption does not hold, the forecasting accuracy degrades. Student&rsquo;s t-processes handle time series with varying noise better than Gaussian processes, but may be less convenient in applications. In this article, we introduce a weighted noise kernel for Gaussian processes allowing to account for varying noise when the ratio between noise variances for different points is known, such as in the case when an observation is the sample mean of multiple samples, and the number of samples varies between observations." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="http://dtolpin.github.io/posts/gp-weighted-noise/" /><meta property="article:published_time" content="2019-06-06T11:00:00&#43;03:00"/>
+<meta property="article:modified_time" content="2019-06-06T11:00:00&#43;03:00"/>
+
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Gaussian process regression with varying noise"/>
+<meta name="twitter:description" content="In Gaussian process regression for time series forecasting, all observations are assumed to have the same noise. When this assumption does not hold, the forecasting accuracy degrades. Student&rsquo;s t-processes handle time series with varying noise better than Gaussian processes, but may be less convenient in applications. In this article, we introduce a weighted noise kernel for Gaussian processes allowing to account for varying noise when the ratio between noise variances for different points is known, such as in the case when an observation is the sample mean of multiple samples, and the number of samples varies between observations."/>
+
+
+
+    <link rel="canonical" href="http://dtolpin.github.io/posts/gp-weighted-noise/">
+
+    <title>
+      
+        Gaussian process regression with varying noise | Offtopia — nothing personal
+      
+    </title>
+
+    
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB" crossorigin="anonymous">
+
+    <link href="http://dtolpin.github.io/css/style.css" rel="stylesheet">
+
+    
+
+    
+
+    
+  </head>
+  <body>
+    
+      <header class="blog-header">
+    <nav class="navbar navbar-expand-md navbar-light bg-light">
+        <a class="navbar-brand" href="/">
+            Offtopia — nothing personal
+        </a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false"
+            aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse justify-content-between" id="navbarNav">
+            <ul class="navbar-nav">
+                
+                
+                <li class="nav-item ">
+                    
+                        <a class="nav-link" href="/about/">About</a>
+                    
+                </li>
+                
+            </ul>
+            
+        </div>
+    </nav>
+</header>
+    
+
+    
+    <div class="container">
+      <div class="row">
+        <div class="col-12 col-lg-8 blog-main">
+
+          
+
+<header>
+    <h2 class="blog-post-title">
+        <a class="text-dark" href="/posts/gp-weighted-noise/">Gaussian process regression with varying noise</a>
+    </h2>
+	<h3 class="blog-post-subtitle"></h3>
+    
+
+
+<div class="blog-post-date text-secondary">
+    
+        Jun 6, 2019
+    
+    
+        by <span rel="author">David Tolpin</span>
+    
+</div>
+
+    
+    
+    <hr>
+</header>
+<article class="blog-post">
+    
+
+<p>In Gaussian process regression for time series forecasting, all
+observations are assumed to have the same noise. When this
+assumption does not hold, the forecasting accuracy degrades.
+Student&rsquo;s <em>t</em>-processes handle time series with varying noise
+better than Gaussian processes, but may be less convenient in
+applications. In this article, we introduce a weighted noise
+kernel for Gaussian processes allowing to account for varying
+noise when the ratio between noise variances for different
+points is known, such as in the case when an observation is the
+sample mean of multiple samples, and the number of samples
+varies between observations. A practical example of this setting
+is forecasting of mean visitor value based on revenues and
+numbers of visitors over fixed time intervals.</p>
+
+<h2 id="preliminaries">Preliminaries</h2>
+
+<h3 id="gaussian-process-regression">Gaussian process regression</h3>
+
+<p><a href="https://en.m.wikipedia.org/wiki/Gaussian_process">Gaussian
+process</a> is a
+non-parameteric regression model in which the vector of values
+of the target variable in any finite combination of points
+follows the normal (Gaussian) distribution. A Gaussian process
+defines a distribution over functions:</p>
+
+<p>$$f \sim \mathcal{GP}(m(\cdot), k(\cdot, \cdot))$$</p>
+
+<p>Here, $m(\cdot)$ is called the <em>mean function</em>, and $k(\cdot,
+\cdot)$ the <em>kernel</em>. Given any vector of points $\pmb{x}$,
+the distribution of the function values at these points
+follows multivariate normal distribution:</p>
+
+<p>$$f(\pmb{x}) \sim \mathcal{N}(m(\pmb{x}), k(\pmb{x}, \pmb{x}))$$</p>
+
+<p>Posterior inference is performed by computing the mean and
+standard deviation at each point of interest based on values of
+the target variable at the observed points.</p>
+
+<p>Inference depends on the process kernel. Kernels can be combined
+by addition and multiplication, and most kernels are
+parameterized by a small number of <em>hyperparameters</em>. The
+hyperparameters are inferred (&lsquo;tuned&rsquo;), e.g. by maximizing the
+likelihood on the training set.</p>
+
+<h3 id="white-noise-kernel">White noise kernel</h3>
+
+<p>To deal with noisy observations, a small constant $\sigma_n^2$
+is customarily added to the diagonal of the covariance matrix
+$\Sigma$:</p>
+
+<p>$$\Sigma \gets \Sigma + \sigma_n^2I$$</p>
+
+<p>The constant $\sigma_n^2$ is interpreted as the variance of
+observation noise, normally distributed with zero mean. Instead
+of adding the noise to the covariance matrix, a <em>white
+noise kernel</em> term can be added to the process kernel. The white
+noise kernel $k_n(\cdot, \cdot)$ is specified as:</p>
+
+<p>$$k_n(x, x&rsquo;) = \sigma_n^2 \text{ if } x \equiv x&rsquo;, 0 \mbox{ otherwise.}$$</p>
+
+<p>Here, $\equiv$ means that $x$ and $x&rsquo;$ refer to the same point,
+rather than just to a pair of possibly different points with the
+same coordinates.</p>
+
+<h2 id="weighted-white-noise-kernel">Weighted white noise kernel</h2>
+
+<p>White noise kernel allows to learn the observation noise from
+data, but does that under the assumption that all observations
+have the same Gaussian noise. Approximating symmetric
+non-Gaussian noise with Gaussian noise will work sufficiently
+well in most cases (see the
+<a href="https://en.m.wikipedia.org/wiki/Central_limit_theorem">Central limit theorem</a>), however observations with strongly varying noise will
+result in either overestimating the noise variance or
+overfitting the data.</p>
+
+<p>In certain important cases, such as the mentioned cases of
+forecasting the mean from observations of the empirical mean
+over varying sample sizes, the relative variance in each point
+can be accurately approximated, and only a single parameter, the
+variance factor, must be learned. This leads to the <em>weighted
+white noise kernel</em>:</p>
+
+<p>$$k_{wn}(x, x&rsquo;) = w(x) \sigma_n^2 \text{ if } x \equiv x&rsquo;, 0 \mbox{ otherwise.}$$</p>
+
+<p>Here $w(x)$ is the noise weight of observation $x$, which in the
+case of empirical mean forecasting is the reciprocal of the
+number of samples.</p>
+
+<h3 id="learning-the-noise">Learning the noise</h3>
+
+<p>The weighted white noise kernel $k_{wn}(\cdot, \cdot)$, just like $k_n(\cdot, \cdot)$, has a single hyperparameter $\sigma_n^2$.</p>
+
+<p>In addition to the kernel itself, the derivative $k&rsquo;_{wn}(\cdot, \cdot)$ of the kernel
+by $\log \sigma_n^2$ is required for learning the hyperparameter:</p>
+
+<p>$$k&rsquo;_{wn}(x, x&rsquo;) = w(x)\sigma_n^2  \text{ if } x \equiv x&rsquo;, 0 \mbox{ otherwise.}$$</p>
+
+<h3 id="forecasting">Forecasting</h3>
+
+<p>There are two options for forecasting:</p>
+
+<ol>
+<li>The white noise is just ignored in forecasting (the true mean
+is forecast).</li>
+<li>The white noise is included (the empirical mean is forecast),
+but cannot be known in advance unless the noise weights of
+future observations are known (and in general the weights are
+unknown).</li>
+</ol>
+
+<p>It is tempting to adopt the first approach, however this breaks
+consistency with the unweighted kernel. A simple assumption in
+the second case is that the average accuracy of
+observations in future data is the same as in the training data.
+This is tantamount to setting the noise weight of all future
+points to the harmonic mean of noise weights of the observed
+data:</p>
+
+<p>$$w^+ = \frac 1 {\sum\limits_x \frac 1 {w(x)}}$$</p>
+
+<p>The implementation in the case study uses the latter noise
+estimate.</p>
+
+<h2 id="case-study">Case study</h2>
+
+<p>For the case study, we obtained a time series where the
+empirical mean is computed at each point, and the number
+of samples varies in broad bound between points. Figure 1
+shows the empirical means and the numbers of samples. Obviously,
+the empirical mean has higher variance at points with lower
+numbers of samples.</p>
+
+<p><img src="/images/weighted-white/series-visits.png" alt="Empirical mean and numbers of samples" /><br />
+<strong>Figure 1. Empirical means and numbers of samples.</strong></p>
+
+<p>We implemented a weighted white noise kernel for the
+<a href="scikit-learn.org">scikit-learn</a> version of Gaussian processes,
+using the
+<a href="https://scikit-learn.org/stable/modules/generated/sklearn.gaussian_process.kernels.WhiteKernel.html">WhiteKernel</a>
+as the starting point and modifying the code to accept
+observation weights. Figure 2 compares forecasting with uniform
+(orange) and weighted (green) noise. The weighted noise
+prediction gives much tighter confidence bounds, while still
+closely following the dynamics of the average visit value.</p>
+
+<p><img src="/images/weighted-white/weighted-gp-forecast.png" alt="Visit value forecasting with weighted noise" /><br />
+<strong>Figure 2. Forecasting with uniform and weighted noise.</strong></p>
+
+<p>The implementation of the weighted white kernel for scikit-learn
+used in the study is available at
+<a href="http://github.com/dtolpin/weighted-white-kernel">http://github.com/dtolpin/weighted-white-kernel</a>.</p>
+
+
+    
+
+    
+
+
+</article>
+
+
+
+        </div>
+
+        <aside class="col-12 col-lg-3 ml-auto blog-sidebar">
+    
+        
+
+
+<section>
+    <h4>Recent Posts</h4>
+    <ol class="list-unstyled">
+        
+        <li>
+            <a href="/posts/gp-weighted-noise/">Gaussian process regression with varying noise</a>
+        </li>
+        
+        <li>
+            <a href="/posts/weighted-white/">There Are No Outliers</a>
+        </li>
+        
+        <li>
+            <a href="/posts/goid/">A Go Transgression</a>
+        </li>
+        
+        <li>
+            <a href="/posts/infergo/">Go Programs That Learn</a>
+        </li>
+        
+        <li>
+            <a href="/posts/session-depth/">A Small Program Can Be a Big Challenge</a>
+        </li>
+        
+    </ol>
+</section>
+
+    
+    
+        <section>
+    
+        
+    
+        
+    
+</section>
+    
+</aside>
+
+      </div>
+    </div>
+    
+
+    
+      
+
+
+
+
+
+
+<footer class="blog-footer w-100">
+    <nav class="navbar navbar-light bg-light">
+        <p class="w-100 text-center">Hugo template made with ❤ by <a href="https://github.com/Xzya">Xzya</a>, inspired by <a href="https://github.com/alanorth/hugo-theme-bootstrap4-blog">hugo-theme-bootstrap4-blog</a></p>
+        <p class="w-100 text-center"><a href="#">Back to top</a></p>
+    </nav>
+</footer>
+
+    
+
+    
+    
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js" integrity="sha384-smHYKdLADwkXOn1EmN1qk/HfnUcbVRZyYmZ4qpPea6sjB/pTJ0euyQp0Mk8ck+5T" crossorigin="anonymous"></script>
+
+    
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/x-mathjax-config">MathJax.Hub.Config({ tex2jax: { inlineMath: [['$','$'], ['\\(','\\)']] } });</script>
+    <script async src="//cdnjs.cloudflare.com/ajax/libs/mathjax/latest/MathJax.js?config=TeX-AMS_CHTML"></script>
+  </body>
+</html>
