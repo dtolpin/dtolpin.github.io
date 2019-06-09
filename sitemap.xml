@@ -8,6 +8,18 @@
   </url>
   
   <url>
+    <loc>http://dtolpin.github.io/</loc>
+    <lastmod>2019-04-02T10:19:13+03:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>http://dtolpin.github.io/posts/</loc>
+    <lastmod>2019-04-02T10:19:13+03:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
     <loc>http://dtolpin.github.io/posts/infergo/</loc>
     <lastmod>2018-11-28T18:19:13+02:00</lastmod>
   </url>
@@ -33,18 +45,6 @@
   
   <url>
     <loc>http://dtolpin.github.io/categories/</loc>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>http://dtolpin.github.io/</loc>
-    <lastmod>2019-04-02T10:19:13+03:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>http://dtolpin.github.io/posts/</loc>
-    <lastmod>2019-04-02T10:19:13+03:00</lastmod>
     <priority>0</priority>
   </url>
   
