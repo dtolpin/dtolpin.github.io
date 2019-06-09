@@ -8,7 +8,8 @@
 <meta property="og:title" content="Gaussian process regression with varying noise" />
 <meta property="og:description" content="In Gaussian process regression for time series forecasting, all observations are assumed to have the same noise. When this assumption does not hold, the forecasting accuracy degrades. Student&rsquo;s t-processes handle time series with varying noise better than Gaussian processes, but may be less convenient in applications. In this article, we introduce a weighted noise kernel for Gaussian processes allowing to account for varying noise when the ratio between noise variances for different points is known, such as in the case when an observation is the sample mean of multiple samples, and the number of samples varies between observations." />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="http://dtolpin.github.io/posts/gp-weighted-noise/" /><meta property="article:published_time" content="2019-06-06T11:00:00&#43;03:00"/>
+<meta property="og:url" content="http://dtolpin.github.io/posts/gp-weighted-noise/" />
+<meta property="article:published_time" content="2019-06-06T11:00:00&#43;03:00"/>
 <meta property="article:modified_time" content="2019-06-06T11:00:00&#43;03:00"/>
 
 <meta name="twitter:card" content="summary"/>
@@ -211,9 +212,9 @@ the second case is that the average accuracy of
 observations in future data is the same as in the training data.
 This is tantamount to setting the noise weight of all future
 points to the harmonic mean of noise weights of the observed
-data:</p>
+points $x_1, x_2, \dots, x_N$:</p>
 
-<p>$$w^+(\cdot) = \frac 1 {\sum\limits_x \frac 1 {w(x)}}$$</p>
+<p>$$w^+(\cdot) = \left( \frac 1 N {\sum\limits_{i=1}^N \frac 1 {w(x_i)}} \right)^{-1}$$</p>
 
 <p>The implementation in the case study uses the latter noise
 estimate.</p>
@@ -227,7 +228,7 @@ shows the empirical means and the numbers of samples. Obviously,
 the empirical mean has higher variance at points with lower
 numbers of samples.</p>
 
-<p><img src="/images/weighted-white/series-visits.png" alt="Empirical mean and numbers of samples" /><br />
+<p><img src="/images/weighted-white/series-visits.svg" alt="Empirical mean and numbers of samples" /><br />
 <strong>Figure 1. Empirical means and numbers of samples.</strong></p>
 
 <p>We implemented a weighted white noise kernel for the
@@ -237,11 +238,20 @@ using the
 as the starting point and modifying the code to accept
 observation weights. Figure 2 compares forecasting with uniform
 (orange) and weighted (green) noise. The weighted noise
-prediction gives much tighter confidence bounds, while still
+kernel gives much tighter confidence bounds, while still
 closely following the dynamics of the average visit value.</p>
 
-<p><img src="/images/weighted-white/weighted-gp-forecast.png" alt="Visit value forecasting with weighted noise" /><br />
+<p><img src="/images/weighted-white/weighted-gp-forecast.svg" alt="Visit value forecasting with weighted noise" /><br />
 <strong>Figure 2. Forecasting with uniform and weighted noise.</strong></p>
+
+<p>Two examples where weighted noise kernel noticeably improves
+forecasting are hours $23$ and $44$, marked in red on the plot. In
+both cases, weighted forecast (green) is closer to the empirical
+mean (and to the apparent true mean). Unweighted noise forecast
+is disturbed by noisy observations during hours $20&ndash;22$, either
+immediately preceding the forecast ($23$), or influencing the
+forecast through the daily seasonal component of the kernel
+($44$).</p>
 
 <p>The implementation of the weighted white kernel for scikit-learn
 used in the study is available at
@@ -273,6 +283,10 @@ used in the study is available at
         </li>
         
         <li>
+            <a href="/posts/">Posts</a>
+        </li>
+        
+        <li>
             <a href="/posts/weighted-white/">There Are No Outliers</a>
         </li>
         
@@ -282,10 +296,6 @@ used in the study is available at
         
         <li>
             <a href="/posts/infergo/">Go Programs That Learn</a>
-        </li>
-        
-        <li>
-            <a href="/posts/session-depth/">A Small Program Can Be a Big Challenge</a>
         </li>
         
     </ol>
