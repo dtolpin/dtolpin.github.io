@@ -72,5 +72,15 @@ Alter Ego linkedin | github | google scholar
 Work  PUB+  Contact  david.tolpin@gmail.com  Legacy Old blog</description>
     </item>
     
+    <item>
+      <title>Academic</title>
+      <link>http://dtolpin.github.io/academic/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>http://dtolpin.github.io/academic/</guid>
+      <description> I am a faculty member of the Computer Science department at the Ben-Gurion University of the Negev, Israel.
+Research interests Publications Ongoing projects </description>
+    </item>
+    
   </channel>
 </rss>
