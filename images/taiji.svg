@@ -1,5 +1,6 @@
 <?xml version="1.0" standalone="no"?>
-<svg width="512" height="512" version="1.1" xmlns="http://www.w3.org/2000/svg">
+<svg width="512" height="512" version="1.1"
+     xmlns="http://www.w3.org/2000/svg">
 
   <defs>
     <clipPath id="yang">
@@ -30,45 +31,53 @@
     clip-path="url(#wuji)"/>
 
   <!-- initial taiji -->
-  <circle cx="256" cy="128" r="384" fill="white" clip-path="url(#yang)" stroke-width="0">
+  <circle cx="256" cy="128" r="384"
+  		    fill="white" clip-path="url(#yang)" stroke-width="0">
     <animate attributeName="opacity" from="0" to="1"
-        dur="16s" repeatCount="1"/>
+             dur="16s" repeatCount="1"/>
   </circle>
-  <circle cx="256" cy="384" r="384" fill="black" clip-path="url(#yin)" stroke-width="0">
+  <circle cx="256" cy="384" r="384" fill="black"
+          clip-path="url(#yin)" stroke-width="0">
     <animate attributeName="opacity" from="0" to="1"
-        dur="16s" repeatCount="1"/>
+      dur="16s" repeatCount="1"/>
   </circle>
 
   <!-- evolving taiji -->
-  <!-- the evolution is overlayed by a fraction of seconds to make transitions
-       between yin and yang look smoother. -->
-  <circle cx="256" cy="128" fill="black" clip-path="url(#yang)" stroke-width="0">
-      <animate attributeName="r" from="11" to="778"
-        dur="16s" repeatCount="indefinite"/>
-      <animate attributeName="opacity" from="0" to="1"
-        dur="8s" repeatCount="1"/>
+  <!-- the evolution is overlayed by a fraction of seconds
+       to make transitions between yin and yang look smoother. -->
+  <circle cx="256" cy="128" fill="black"
+          clip-path="url(#yang)" stroke-width="0">
+    <animate attributeName="r" from="11" to="778"
+             dur="16s" repeatCount="indefinite"/>
+    <animate attributeName="opacity" from="0" to="1"
+             dur="8s" repeatCount="1"/>
   </circle>
-  <circle cx="256" cy="128" fill="white" clip-path="url(#yang)" stroke-width="0">
-      <animate attributeName="r" from="-373" to="394"
-        dur="16s" repeatCount="indefinite"/>
+  <circle cx="256" cy="128" fill="white"
+          clip-path="url(#yang)" stroke-width="0">
+    <animate attributeName="r" from="-373" to="394"
+             dur="16s" repeatCount="indefinite"/>
   </circle>
-  <circle cx="256" cy="128" fill="black" clip-path="url(#yang)" stroke-width="0">
-      <animate attributeName="r" from="-756" to="11"
-        dur="16s" repeatCount="indefinite"/>
+  <circle cx="256" cy="128" fill="black"
+          clip-path="url(#yang)" stroke-width="0">
+    <animate attributeName="r" from="-756" to="11"
+             dur="16s" repeatCount="indefinite"/>
   </circle>
 
-  <circle cx="256" cy="384" fill="white" clip-path="url(#yin)" stroke-width="0">
-      <animate attributeName="r" from="11" to="778"
-        dur="16s" repeatCount="indefinite"/>
-      <animate attributeName="opacity" from="0" to="1"
-        dur="8s" repeatCount="1"/>
+  <circle cx="256" cy="384" fill="white"
+          clip-path="url(#yin)" stroke-width="0">
+    <animate attributeName="r" from="11" to="778"
+             dur="16s" repeatCount="indefinite"/>
+    <animate attributeName="opacity" from="0" to="1"
+             dur="8s" repeatCount="1"/>
   </circle>
-  <circle cx="256" cy="384" fill="black" clip-path="url(#yin)" stroke-width="0">
-      <animate attributeName="r" from="-373" to="394"
-        dur="16s" repeatCount="indefinite"/>
+  <circle cx="256" cy="384" fill="black"
+          clip-path="url(#yin)" stroke-width="0">
+    <animate attributeName="r" from="-373" to="394"
+             dur="16s" repeatCount="indefinite"/>
   </circle>
-  <circle cx="256" cy="128" fill="white" clip-path="url(#yin)" stroke-width="0">
-      <animate attributeName="r" from="-756" to="11"
-        dur="16s" repeatCount="indefinite"/>
+  <circle cx="256" cy="128" fill="white"
+          clip-path="url(#yin)" stroke-width="0">
+    <animate attributeName="r" from="-756" to="11"
+             dur="16s" repeatCount="indefinite"/>
   </circle>
 </svg>

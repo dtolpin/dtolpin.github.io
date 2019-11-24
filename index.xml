@@ -78,8 +78,8 @@ Work  PUB+  Contact  david.tolpin@gmail.com  Legacy Old blog</description>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>http://dtolpin.github.io/academic/</guid>
-      <description> I am a faculty member of the Computer Science department at the Ben-Gurion University of the Negev, Israel.
-Research interests Publications Ongoing projects </description>
+      <description>I am a faculty member of the Computer Science department at the Ben-Gurion University of the Negev, Israel.
+Research interests My current research is related to the field of probabilistic programming and Bayesian statistical modelling. In particular, I am interested in defining the kinds of models which can be efficiently represented and reasoned upon by means of probabilistic programming, on one hand, and in application of probabilistic programming to other areas, such as computational health, robotics, or human-computer interaction, on the other hand.</description>
     </item>
     
   </channel>
