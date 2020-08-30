@@ -6,10 +6,20 @@
     <description>Recent content in Posts on Offtopia — nothing personal</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Mon, 03 Jun 2019 17:39:28 +0300</lastBuildDate>
+    <lastBuildDate>Sat, 29 Aug 2020 18:00:54 +0300</lastBuildDate>
     
 	<atom:link href="http://dtolpin.github.io/posts/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>BDA model too tough for Stan</title>
+      <link>http://dtolpin.github.io/posts/nypopu/</link>
+      <pubDate>Sat, 29 Aug 2020 18:00:54 +0300</pubDate>
+      
+      <guid>http://dtolpin.github.io/posts/nypopu/</guid>
+      <description>I taught a course on Bayesian data analysis, closely following the book by Andrew Gelman et al., but with the twist of using probabilistic programming, either Stan or Infergo, for all examples and exercises. However, it turned out that at least one important problem in the book is beyond the capabilities of Stan.
+This case study is inspired by Section 7.6 in Bayesian Data Analysis, originally a paper published in 1983 by Ronald Rubin.</description>
+    </item>
     
     <item>
       <title>There Are No Outliers</title>
