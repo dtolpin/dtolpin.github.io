@@ -10,8 +10,8 @@
 However, behind the Gaussian process stands an assumption that all observations come from a Gaussian distribution with constant noise and the mean lying on a smooth function of time." />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="http://dtolpin.github.io/posts/weighted-white/" />
-<meta property="article:published_time" content="2019-06-03T17:39:28&#43;03:00"/>
-<meta property="article:modified_time" content="2019-06-03T17:39:28&#43;03:00"/>
+<meta property="article:published_time" content="2019-06-03T17:39:28+03:00" />
+<meta property="article:modified_time" content="2019-06-03T17:39:28+03:00" />
 
 <meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="There Are No Outliers"/>
@@ -60,6 +60,12 @@ However, behind the Gaussian process stands an assumption that all observations 
                     
                 </li>
                 
+                <li class="nav-item ">
+                    
+                        <a class="nav-link" href="/academic/">Academic</a>
+                    
+                </li>
+                
             </ul>
             
         </div>
@@ -103,7 +109,6 @@ seasonality, various degrees of smoothness, non-stationarity.
 External predictors can be added as input dimensions. A prior
 can be chosen to provide a reasonable forecast when little
 or even no data is available.</p>
-
 <p>However, behind the Gaussian process stands an assumption
 that all observations come from a Gaussian distribution with
 constant noise and the mean lying on a smooth function of time.
@@ -113,9 +118,7 @@ Gaussian process does not provide an accurate forecast. For a
 stock Gaussian process, observations from alternating modes or
 with high noise are <em>outliers</em>, that is, data points which only
 make the forecast worse rather than improve it.</p>
-
-<hr />
-
+<hr>
 <p>One such case is forecasting of <em>visit value</em> in revenue
 attribution for online content. Visit value is the revenue
 a single visitor brings to the content provider. A noisy
@@ -124,10 +127,8 @@ by the number of visits over a fixed time interval, for example,
 over an hour. Then, based on these measurements, a forecast of
 the visit value is computed. The forecast is the mean and the
 standard error of the average visit value at a future time.</p>
-
-<p><img src="/images/weighted-white/gp-forecast.png" alt="Visit value forecasting with Gaussian process" /><br />
+<p><img src="/images/weighted-white/gp-forecast.png" alt="Visit value forecasting with Gaussian process"><br>
 <strong>Figure 1. Visit value forecasting with Gaussian process</strong></p>
-
 <p>If the forecast is consistent, approximately 67% of future
 observations fall within the standard error of the mean. In
 Figure 1 almost all of observations are within the standard
@@ -140,32 +141,28 @@ seasonality). Apparently, some noisy observations negatively
 affect the quality of forecasting. If we could filter them out
 or diminish their influence on the overall trend, we would be
 able to improve forecasting accuracy.</p>
-
 <p>The problem of outliers and varying noise in Gaussian processes
 is not new, and solutions were proposed in the past. One of the
-solutions is <a href="https://www.cs.cmu.edu/~andrewgw/tprocess.pdf">Student&rsquo;s <em>t</em>-processes</a>,
+solutions is <a href="https://www.cs.cmu.edu/~andrewgw/tprocess.pdf">Student's <em>t</em>-processes</a>,
 which are similar to Gaussian processes but are based on the
-<a href="https://en.wikipedia.org/wiki/Student's_t-distribution">Student&rsquo;s
+<a href="https://en.wikipedia.org/wiki/Student's_t-distribution">Student's
 <em>t</em>-distribution</a>
-instead of the Gaussian distribution. The Student&rsquo;s
+instead of the Gaussian distribution. The Student's
 <em>t</em>-distribution has a similar bell-like shape but heavier tails,
 resulting in unusually deviating measurements having lower
 influence on the forecast.</p>
-
-<p><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/41/Student_t_pdf.svg/650px-Student_t_pdf.svg.png" alt="Student-t distribution" /><br />
+<p><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/41/Student_t_pdf.svg/650px-Student_t_pdf.svg.png" alt="Student-t distribution"><br>
 <strong>Figure 2. Student-t distribution with different degrees of
 normality ν (from Wikipedia)</strong></p>
-
 <p>Theoretically, this is a promising solution. There is also an
-<a href="https://docs.pymc.io/notebooks/GP-TProcess.html">implementation of Student&rsquo;s <em>t</em>-processes in
+<a href="https://docs.pymc.io/notebooks/GP-TProcess.html">implementation of Student's <em>t</em>-processes in
 Python</a>.
-Practically though, Student&rsquo;s <em>t</em>-processes are not as flexible
+Practically though, Student's <em>t</em>-processes are not as flexible
 in supporting elaborated kernels accounting for different
 seasonalities, external predictors, or non-stationarity.
 Gaussian processes are also much more widely adopted and better
 tested and supported. We would definitely prefer to use Gaussian
 processes if we could find a way to accommodate for varying noise.</p>
-
 <p>While in general that would be too much to ask for, in the case
 of visit value forecasting we know the relative noise of
 different observations, which is  proportional to the number
@@ -177,7 +174,6 @@ the noise factor by maximizing the likelihood of observations,
 but for each observation we divide the factor by the number of
 visits. For forecasting, we multiply the observation noise by
 the average number of visits per observation.</p>
-
 <p>We implemented this &lsquo;weighted noise&rsquo; trick for the
 <a href="scikit-learn.org">scikit-learn</a> version of Gaussian processes,
 using the
@@ -187,10 +183,8 @@ observation weights. Figure 3 compares forecasting with fixed
 (orange) and weighted (green) noise. The weighted noise
 prediction gives much tighter confidence bounds, while still
 closely following the dynamics of the average visit value.</p>
-
-<p><img src="/images/weighted-white/weighted-gp-forecast.png" alt="Visit value forecasting with weighted noise" /><br />
+<p><img src="/images/weighted-white/weighted-gp-forecast.png" alt="Visit value forecasting with weighted noise"><br>
 <strong>Figure 3. Visit value forecasting with Gaussian process and weighted noise</strong></p>
-
 <p>This addition took only a couple dozen lines of code, including
 tests, and greatly improved forecasting accuracy. In this case,
 a simple solution taking into account the structure of data and
@@ -219,10 +213,6 @@ development and deployment cost.</p>
     <ol class="list-unstyled">
         
         <li>
-            <a href="/posts/gp-weighted-noise/">Gaussian process regression with varying noise</a>
-        </li>
-        
-        <li>
             <a href="/posts/">Posts</a>
         </li>
         
@@ -236,6 +226,10 @@ development and deployment cost.</p>
         
         <li>
             <a href="/posts/infergo/">Go Programs That Learn</a>
+        </li>
+        
+        <li>
+            <a href="/posts/session-depth/">A Small Program Can Be a Big Challenge</a>
         </li>
         
     </ol>

@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Posts on Offtopia — nothing personal</title>
@@ -6,10 +6,20 @@
     <description>Recent content in Posts on Offtopia — nothing personal</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Tue, 02 Apr 2019 10:19:13 +0300</lastBuildDate>
+    <lastBuildDate>Mon, 03 Jun 2019 17:39:28 +0300</lastBuildDate>
     
 	<atom:link href="http://dtolpin.github.io/posts/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>There Are No Outliers</title>
+      <link>http://dtolpin.github.io/posts/weighted-white/</link>
+      <pubDate>Mon, 03 Jun 2019 17:39:28 +0300</pubDate>
+      
+      <guid>http://dtolpin.github.io/posts/weighted-white/</guid>
+      <description>Gaussian processes are great for time series forecasting. The time series does not have to be regular &amp;mdash; &amp;lsquo;missing data&amp;rsquo; is not an issue. A kernel can be chosen to express trend, seasonality, various degrees of smoothness, non-stationarity. External predictors can be added as input dimensions. A prior can be chosen to provide a reasonable forecast when little or even no data is available.
+However, behind the Gaussian process stands an assumption that all observations come from a Gaussian distribution with constant noise and the mean lying on a smooth function of time.</description>
+    </item>
     
     <item>
       <title>A Go Transgression</title>
@@ -28,7 +38,7 @@ In Infergo, I had to have goroutine-local storage. Here is how I got efficient g
       
       <guid>http://dtolpin.github.io/posts/infergo/</guid>
       <description>There are so many probabilistic programming languages that it is hard to choose one. Because it is so hard to choose one, a probabilistic programmer has two options:
- invent a new probabilistic programming language, or write probabilistic programs in a regular programming language.  The former choice is easier to make, that&amp;rsquo;s why there are so many different probabilistic programming languages. But writing programs is so much easier in a regular language, and programs in regular languages can do many useful things.</description>
+ invent a new probabilistic programming language, or write probabilistic programs in a regular programming language.  The former choice is easier to make, that&#39;s why there are so many different probabilistic programming languages. But writing programs is so much easier in a regular language, and programs in regular languages can do many useful things.</description>
     </item>
     
     <item>
@@ -38,7 +48,7 @@ In Infergo, I had to have goroutine-local storage. Here is how I got efficient g
       
       <guid>http://dtolpin.github.io/posts/session-depth/</guid>
       <description>[Poster: html, pdf]
-A good part of today&amp;rsquo;s internet content is created and shaped for delivering advertisements. Internet pages are interconnected by links, and a visitor is likely to open multiple pages from the same publisher. After a while, visitors leave the web site, either due to clicking on an advertisement or just because they get bored and switch to other content or activity.
+A good part of today&#39;s internet content is created and shaped for delivering advertisements. Internet pages are interconnected by links, and a visitor is likely to open multiple pages from the same publisher. After a while, visitors leave the web site, either due to clicking on an advertisement or just because they get bored and switch to other content or activity.
 The probability distribution of the session depth — the number of pages opened during a single visit — is an important metric for the publisher.</description>
     </item>
     
