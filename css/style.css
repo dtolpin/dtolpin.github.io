@@ -52,14 +52,3 @@
 .blog-post h3 {
     color: #258;
 }
-
-.blog-post table {
-	margin-left: auto;
-	margin-right: auto;
-	margin-bottom: 1em;
-}
-
-.blog-post td, .blog-post th {
-	padding: 0pt 6pt
-}
-
