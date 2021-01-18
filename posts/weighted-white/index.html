@@ -143,11 +143,11 @@ or diminish their influence on the overall trend, we would be
 able to improve forecasting accuracy.</p>
 <p>The problem of outliers and varying noise in Gaussian processes
 is not new, and solutions were proposed in the past. One of the
-solutions is <a href="https://www.cs.cmu.edu/~andrewgw/tprocess.pdf">Student&rsquo;s <em>t</em>-processes</a>,
+solutions is <a href="https://www.cs.cmu.edu/~andrewgw/tprocess.pdf">Student's <em>t</em>-processes</a>,
 which are similar to Gaussian processes but are based on the
-<a href="https://en.wikipedia.org/wiki/Student's_t-distribution">Student&rsquo;s
+<a href="https://en.wikipedia.org/wiki/Student's_t-distribution">Student's
 <em>t</em>-distribution</a>
-instead of the Gaussian distribution. The Student&rsquo;s
+instead of the Gaussian distribution. The Student's
 <em>t</em>-distribution has a similar bell-like shape but heavier tails,
 resulting in unusually deviating measurements having lower
 influence on the forecast.</p>
@@ -155,9 +155,9 @@ influence on the forecast.</p>
 <strong>Figure 2. Student-t distribution with different degrees of
 normality ν (from Wikipedia)</strong></p>
 <p>Theoretically, this is a promising solution. There is also an
-<a href="https://docs.pymc.io/notebooks/GP-TProcess.html">implementation of Student&rsquo;s <em>t</em>-processes in
+<a href="https://docs.pymc.io/notebooks/GP-TProcess.html">implementation of Student's <em>t</em>-processes in
 Python</a>.
-Practically though, Student&rsquo;s <em>t</em>-processes are not as flexible
+Practically though, Student's <em>t</em>-processes are not as flexible
 in supporting elaborated kernels accounting for different
 seasonalities, external predictors, or non-stationarity.
 Gaussian processes are also much more widely adopted and better

@@ -250,8 +250,7 @@ model in Infergo:</p>
 		logp <span style="color:#666">+=</span> <span style="color:#666">-</span>math.<span style="color:#06287e">Log</span>(z) <span style="color:#666">+</span> Normal.<span style="color:#06287e">Logp</span>(mu, sigma, math.<span style="color:#06287e">Log</span>(z))
 	}
 	<span style="color:#007020;font-weight:bold">return</span> logp
-}
-</code></pre></div>
+}</code></pre></div>
 <p>A straightforward way to sample from the quantiles is to sample a
 quantile proportionally to the probability mass, and then sample
 a value uniformly from the range of values in the quantile:</p>
@@ -270,8 +269,7 @@ a value uniformly from the range of values in the quantile:</p>
 	}
 }
 <span style="color:#007020;font-weight:bold">return</span> z
-}
-</code></pre></div>
+}</code></pre></div>
 <p>This is all we need to define the stochastically conditioned
 probabilistic model in Infergo (the complete code and data are
 <a href="https://bitbucket.org/dtolpin/stochastic-conditioning">on BitBucket</a>).
