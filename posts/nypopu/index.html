@@ -255,20 +255,20 @@ model in Infergo:</p>
 quantile proportionally to the probability mass, and then sample
 a value uniformly from the range of values in the quantile:</p>
 <div class="highlight"><pre style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-go" data-lang="go"><span style="color:#007020;font-weight:bold">func</span> <span style="color:#06287e">RandQuantile</span>(q [][<span style="color:#40a070">2</span>]<span style="color:#902000">float64</span>) <span style="color:#902000">float64</span> {
-<span style="color:#007020;font-weight:bold">var</span> p, z <span style="color:#902000">float64</span>
-<span style="color:#007020;font-weight:bold">for</span> {
-	p = rand.<span style="color:#06287e">ExpFloat64</span>()
-	<span style="color:#007020;font-weight:bold">if</span> p &lt; <span style="color:#40a070">1</span> {
-		<span style="color:#007020;font-weight:bold">break</span>
+	<span style="color:#007020;font-weight:bold">var</span> p, z <span style="color:#902000">float64</span>
+	<span style="color:#007020;font-weight:bold">for</span> {
+		p = rand.<span style="color:#06287e">ExpFloat64</span>()
+		<span style="color:#007020;font-weight:bold">if</span> p &lt; <span style="color:#40a070">1</span> {
+			<span style="color:#007020;font-weight:bold">break</span>
+		}
 	}
-}
-<span style="color:#007020;font-weight:bold">for</span> i <span style="color:#666">:=</span> <span style="color:#40a070">1</span>; i <span style="color:#666">!=</span> <span style="color:#007020">len</span>(q); i<span style="color:#666">++</span> {
-	<span style="color:#007020;font-weight:bold">if</span> q[i][<span style="color:#40a070">0</span>] <span style="color:#666">&gt;=</span> p {
-		z = q[i<span style="color:#666">-</span><span style="color:#40a070">1</span>][<span style="color:#40a070">1</span>] <span style="color:#666">+</span> rand.<span style="color:#06287e">Float64</span>()<span style="color:#666">*</span>(q[i][<span style="color:#40a070">1</span>]<span style="color:#666">-</span>q[i<span style="color:#666">-</span><span style="color:#40a070">1</span>][<span style="color:#40a070">1</span>])
-		<span style="color:#007020;font-weight:bold">break</span>
+	<span style="color:#007020;font-weight:bold">for</span> i <span style="color:#666">:=</span> <span style="color:#40a070">1</span>; i <span style="color:#666">!=</span> <span style="color:#007020">len</span>(q); i<span style="color:#666">++</span> {
+		<span style="color:#007020;font-weight:bold">if</span> q[i][<span style="color:#40a070">0</span>] <span style="color:#666">&gt;=</span> p {
+			z = q[i<span style="color:#666">-</span><span style="color:#40a070">1</span>][<span style="color:#40a070">1</span>] <span style="color:#666">+</span> rand.<span style="color:#06287e">Float64</span>()<span style="color:#666">*</span>(q[i][<span style="color:#40a070">1</span>]<span style="color:#666">-</span>q[i<span style="color:#666">-</span><span style="color:#40a070">1</span>][<span style="color:#40a070">1</span>])
+			<span style="color:#007020;font-weight:bold">break</span>
+		}
 	}
-}
-<span style="color:#007020;font-weight:bold">return</span> z
+	<span style="color:#007020;font-weight:bold">return</span> z
 }</code></pre></div>
 <p>This is all we need to define the stochastically conditioned
 probabilistic model in Infergo (the complete code and data are
