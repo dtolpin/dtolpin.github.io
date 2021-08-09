@@ -9,7 +9,7 @@
 <meta property="og:description" content="Probabilistic programs implement statistical models. Commonly, probabilistic programs follow the Bayesian generative pattern:
 \begin{equation} \begin{aligned} x &amp; \sim \mathrm{Prior} \\
 y &amp; \sim \mathrm{Conditonal}(x) \end{aligned} \end{equation}
- A prior is imposed on the latent variable x. Then, observations y are drawn from a distribution conditioned on x.  The program and the observations are passed to an inference algorithm which infers the posterior of latent variable x.
+ A prior is imposed on the latent variable $x$. Then, observations $y$ are drawn from a distribution conditioned on $x$.  The program and the observations are passed to an inference algorithm which infers the posterior of latent variable $x$.
 The questions is: what is observed?" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="http://dtolpin.github.io/posts/stochastic-conditioning/" /><meta property="article:section" content="posts" />
@@ -22,7 +22,7 @@ The questions is: what is observed?" />
 <meta name="twitter:description" content="Probabilistic programs implement statistical models. Commonly, probabilistic programs follow the Bayesian generative pattern:
 \begin{equation} \begin{aligned} x &amp; \sim \mathrm{Prior} \\
 y &amp; \sim \mathrm{Conditonal}(x) \end{aligned} \end{equation}
- A prior is imposed on the latent variable x. Then, observations y are drawn from a distribution conditioned on x.  The program and the observations are passed to an inference algorithm which infers the posterior of latent variable x.
+ A prior is imposed on the latent variable $x$. Then, observations $y$ are drawn from a distribution conditioned on $x$.  The program and the observations are passed to an inference algorithm which infers the posterior of latent variable $x$.
 The questions is: what is observed?"/>
 
 
@@ -120,12 +120,12 @@ y &amp; \sim \mathrm{Conditonal}(x)
 \end{aligned}
 \end{equation}</p>
 <ul>
-<li>A prior is imposed on the latent variable x.</li>
-<li>Then, observations y are drawn from a distribution conditioned
-on x.</li>
+<li>A prior is imposed on the latent variable $x$.</li>
+<li>Then, observations $y$ are drawn from a distribution conditioned
+on $x$.</li>
 </ul>
 <p>The program and the observations are passed to an inference
-algorithm which infers the posterior of latent variable x.</p>
+algorithm which infers the posterior of latent variable $x$.</p>
 <p>The questions is: what is observed?</p>
 <p>In a basic, familiar, setting, samples from the joint data
 distribution are observed. However, it is also possible that the
@@ -154,7 +154,7 @@ of possible road closure combinations.</p>
 <p>Existing probabilistic programming frameworks cannot represent
 such cases straighforwardly.</p>
 <p>To address this problem, we propose to generalize deterministic
-conditioning $x|y=y0$ on values to stochastic conditioning $x|y
+conditioning $x|y=y_0$ on values to stochastic conditioning $x|y
 \sim D_0$ on distributions.</p>
 <p>Formally, a probabilistic program with stochastic conditioning
 is a tuple $(p(x, y), D)$, consisting of</p>
