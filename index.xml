@@ -6,7 +6,20 @@
     <description>Recent content on Offtopia — nothing personal</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sat, 29 Aug 2020 18:00:54 +0300</lastBuildDate><atom:link href="http://dtolpin.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Mon, 09 Aug 2021 15:17:00 +0300</lastBuildDate><atom:link href="http://dtolpin.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Stochastic conditioning</title>
+      <link>http://dtolpin.github.io/posts/stochastic-conditioning/</link>
+      <pubDate>Mon, 09 Aug 2021 15:17:00 +0300</pubDate>
+      
+      <guid>http://dtolpin.github.io/posts/stochastic-conditioning/</guid>
+      <description>Probabilistic programs implement statistical models. Commonly, probabilistic programs follow the Bayesian generative pattern:
+\begin{equation} \begin{aligned} x &amp;amp; \sim \mathrm{Prior} \\
+y &amp;amp; \sim \mathrm{Conditonal}(x) \end{aligned} \end{equation}
+ A prior is imposed on the latent variable x. Then, observations y are drawn from a distribution conditioned on x.  The program and the observations are passed to an inference algorithm which infers the posterior of latent variable x.
+The questions is: what is observed?</description>
+    </item>
+    
     <item>
       <title>BDA Model Too Tough for Stan</title>
       <link>http://dtolpin.github.io/posts/nypopu/</link>
