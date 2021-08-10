@@ -11,8 +11,8 @@ A good part of today&rsquo;s internet content is created and shaped for deliveri
 The probability distribution of the session depth — the number of pages opened during a single visit — is an important metric for the publisher." />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="http://dtolpin.github.io/posts/session-depth/" /><meta property="article:section" content="posts" />
-<meta property="article:published_time" content="2018-08-15T22:49:53+03:00" />
-<meta property="article:modified_time" content="2018-08-15T22:49:53+03:00" />
+<meta property="article:published_time" content="2018-08-15T22:49:53&#43;03:00" />
+<meta property="article:modified_time" content="2018-08-15T22:49:53&#43;03:00" />
 
 
 <meta name="twitter:card" content="summary"/>
@@ -172,20 +172,20 @@ session depth.</p>
 where the average session depth gradually decreases
 from 5 to 1. Note how the mean gradually and smoothly follows
 the trend, despite very noisy data. $C$ was set to 1000.</p>
-<p><!-- raw HTML omitted --></p>
+<p><img src="/images/session-depth/FAKE-1000.gif" alt="1000"></p>
 <p>Obviously, we do not know the value of $C$ and want to infer
 $C$ for each campaign based on observed session depth counts.
 The right value of $C$ is crucial for the best forecasting
 performance, notice how a smaller value of $C$ ($C=30$) affects
 prediction of the session depth on the same data:</p>
-<p><!-- raw HTML omitted --></p>
+<p><img src="/images/session-depth/FAKE-30.gif" alt="30"></p>
 <p>We turn to <a href="http://www.probabilistic-programming.org/wiki/Home">probabilistic programming</a> for this task, putting a
 prior on $C$ and running the inference on the history of
 session depth observations. We then infer the posterior
 distribution of $C$, and use the mean of the posterior for
 forecasting. An example of predicted $C$ values is in the
 histogram below.</p>
-<p><!-- raw HTML omitted --></p>
+<p><img src="/images/session-depth/FAKE-bandwidth.gif" alt="bandwidth"></p>
 <h2 id="probabilistic-programs">Probabilistic programs</h2>
 <blockquote>
 <p>The program code is at <a href="http://bitbucket.org/probprog/ppv-pp-paper">bitbucket.org/probprog/ppv-pp-paper</a>, in the <code>worksheets</code> folder.</p>
@@ -309,7 +309,8 @@ implementation came out amazingly lean and simple:</p>
 </span><span style="color:#60a0b0;font-style:italic"></span>            <span style="color:#007020;font-weight:bold">break</span>
         }
     }
-}</code></pre></td></tr></table>
+}
+</code></pre></td></tr></table>
 </div>
 </div>
 <hr>
@@ -342,7 +343,8 @@ implementation came out amazingly lean and simple:</p>
             x, logp = x0, logp0
         }
     }
-}</code></pre></td></tr></table>
+}
+</code></pre></td></tr></table>
 </div>
 </div>
 <hr>
@@ -394,6 +396,10 @@ for probabilistic programming.</li>
     <ol class="list-unstyled">
         
         <li>
+            <a href="/posts/h2typ/">How To Train Your Program</a>
+        </li>
+        
+        <li>
             <a href="/posts/">Posts</a>
         </li>
         
@@ -407,10 +413,6 @@ for probabilistic programming.</li>
         
         <li>
             <a href="/posts/weighted-white/">There Are No Outliers</a>
-        </li>
-        
-        <li>
-            <a href="/posts/goid/">A Go Transgression</a>
         </li>
         
     </ol>

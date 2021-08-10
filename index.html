@@ -1,7 +1,7 @@
 <!doctype html>
 <html lang="en">
   <head>
-	<meta name="generator" content="Hugo 0.85.0" />
+	<meta name="generator" content="Hugo 0.81.0" />
     <meta charset="utf-8">
 <meta http-equiv="x-ua-compatible" content="ie=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -87,6 +87,42 @@
         <article class="blog-post">
     <header>
         <h2 class="blog-post-title">
+            <a class="text-dark" href="/posts/h2typ/">How To Train Your Program</a>
+        </h2>
+        
+        <h3 class="blog-post-subtitle">A probabilistic programming pattern for Bayesian learning from data</h3>
+        
+        
+
+
+<div class="blog-post-date text-secondary">
+    
+        Aug 10, 2021
+    
+    
+        by <span rel="author">David Tolpin</span>
+    
+</div>
+
+        
+        
+    </header>
+    arXiv | code
+The ultimate Bayesian approach to learning from data is embodied by hierarchical models. In a hierarchical model, each observation or a group of observations $y_i$ corresponding to a single item in the data set is conditioned on a parameter $\theta_i$, and all parameters are conditioned on a hyperparameter $\tau$: \begin{equation} \begin{aligned} \tau &amp; \sim H \\
+\theta_i &amp; \sim D(\tau) \\
+y_i &amp; \sim F(\theta_i) \end{aligned} \label{eqn:hier} \end{equation}
+    <p></p>
+    <a href="/posts/h2typ/">Read More →</a>
+</article>
+
+    
+
+
+
+    
+        <article class="blog-post">
+    <header>
+        <h2 class="blog-post-title">
             <a class="text-dark" href="/posts/stochastic-conditioning/">Stochastic conditioning</a>
         </h2>
         
@@ -148,40 +184,6 @@ The questions is: what is observed?
 This case study is inspired by Section 7.6 in Bayesian Data Analysis, originally a paper published in 1983 by Ronald Rubin.
     <p></p>
     <a href="/posts/nypopu/">Read More →</a>
-</article>
-
-    
-
-
-
-    
-        <article class="blog-post">
-    <header>
-        <h2 class="blog-post-title">
-            <a class="text-dark" href="/posts/weighted-white/">There Are No Outliers</a>
-        </h2>
-        
-        <h3 class="blog-post-subtitle">Gaussian process regression with varying noise</h3>
-        
-        
-
-
-<div class="blog-post-date text-secondary">
-    
-        Jun 3, 2019
-    
-    
-        by <span rel="author">David Tolpin</span>
-    
-</div>
-
-        
-        
-    </header>
-    Gaussian processes are great for time series forecasting. The time series does not have to be regular &mdash; &lsquo;missing data&rsquo; is not an issue. A kernel can be chosen to express trend, seasonality, various degrees of smoothness, non-stationarity. External predictors can be added as input dimensions. A prior can be chosen to provide a reasonable forecast when little or even no data is available.
-However, behind the Gaussian process stands an assumption that all observations come from a Gaussian distribution with constant noise and the mean lying on a smooth function of time.
-    <p></p>
-    <a href="/posts/weighted-white/">Read More →</a>
 </article>
 
     
@@ -280,6 +282,10 @@ However, behind the Gaussian process stands an assumption that all observations 
     <ol class="list-unstyled">
         
         <li>
+            <a href="/posts/h2typ/">How To Train Your Program</a>
+        </li>
+        
+        <li>
             <a href="/posts/">Posts</a>
         </li>
         
@@ -293,10 +299,6 @@ However, behind the Gaussian process stands an assumption that all observations 
         
         <li>
             <a href="/posts/weighted-white/">There Are No Outliers</a>
-        </li>
-        
-        <li>
-            <a href="/posts/goid/">A Go Transgression</a>
         </li>
         
     </ol>

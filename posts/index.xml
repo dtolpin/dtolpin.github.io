@@ -6,7 +6,19 @@
     <description>Recent content in Posts on Offtopia — nothing personal</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Mon, 09 Aug 2021 15:17:00 +0300</lastBuildDate><atom:link href="http://dtolpin.github.io/posts/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Tue, 10 Aug 2021 12:00:00 +0300</lastBuildDate><atom:link href="http://dtolpin.github.io/posts/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>How To Train Your Program</title>
+      <link>http://dtolpin.github.io/posts/h2typ/</link>
+      <pubDate>Tue, 10 Aug 2021 12:00:00 +0300</pubDate>
+      
+      <guid>http://dtolpin.github.io/posts/h2typ/</guid>
+      <description>arXiv | code
+The ultimate Bayesian approach to learning from data is embodied by hierarchical models. In a hierarchical model, each observation or a group of observations $y_i$ corresponding to a single item in the data set is conditioned on a parameter $\theta_i$, and all parameters are conditioned on a hyperparameter $\tau$: \begin{equation} \begin{aligned} \tau &amp;amp; \sim H \\
+\theta_i &amp;amp; \sim D(\tau) \\
+y_i &amp;amp; \sim F(\theta_i) \end{aligned} \label{eqn:hier} \end{equation}</description>
+    </item>
+    
     <item>
       <title>Stochastic conditioning</title>
       <link>http://dtolpin.github.io/posts/stochastic-conditioning/</link>
