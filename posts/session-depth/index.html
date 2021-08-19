@@ -172,20 +172,20 @@ session depth.</p>
 where the average session depth gradually decreases
 from 5 to 1. Note how the mean gradually and smoothly follows
 the trend, despite very noisy data. $C$ was set to 1000.</p>
-<p><!-- raw HTML omitted --></p>
+<p><img src="/images/session-depth/FAKE-1000.gif" alt="1000"></p>
 <p>Obviously, we do not know the value of $C$ and want to infer
 $C$ for each campaign based on observed session depth counts.
 The right value of $C$ is crucial for the best forecasting
 performance, notice how a smaller value of $C$ ($C=30$) affects
 prediction of the session depth on the same data:</p>
-<p><!-- raw HTML omitted --></p>
+<p><img src="/images/session-depth/FAKE-30.gif" alt="30"></p>
 <p>We turn to <a href="http://www.probabilistic-programming.org/wiki/Home">probabilistic programming</a> for this task, putting a
 prior on $C$ and running the inference on the history of
 session depth observations. We then infer the posterior
 distribution of $C$, and use the mean of the posterior for
 forecasting. An example of predicted $C$ values is in the
 histogram below.</p>
-<p><!-- raw HTML omitted --></p>
+<p><img src="/images/session-depth/FAKE-bandwidth.gif" alt="bandwidth"></p>
 <h2 id="probabilistic-programs">Probabilistic programs</h2>
 <blockquote>
 <p>The program code is at <a href="http://bitbucket.org/probprog/ppv-pp-paper">bitbucket.org/probprog/ppv-pp-paper</a>, in the <code>worksheets</code> folder.</p>
@@ -394,11 +394,15 @@ for probabilistic programming.</li>
     <ol class="list-unstyled">
         
         <li>
+            <a href="/posts/double-speed-replay/">Double Speed Replay</a>
+        </li>
+        
+        <li>
             <a href="/posts/">Posts</a>
         </li>
         
         <li>
-            <a href="/posts/stochastic-conditioning/">Stochastic conditioning</a>
+            <a href="/posts/stochastic-conditioning/">Stochastic Conditioning</a>
         </li>
         
         <li>
@@ -407,10 +411,6 @@ for probabilistic programming.</li>
         
         <li>
             <a href="/posts/weighted-white/">There Are No Outliers</a>
-        </li>
-        
-        <li>
-            <a href="/posts/goid/">A Go Transgression</a>
         </li>
         
     </ol>

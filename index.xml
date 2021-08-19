@@ -6,9 +6,19 @@
     <description>Recent content on Offtopia — nothing personal</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Mon, 09 Aug 2021 15:17:00 +0300</lastBuildDate><atom:link href="http://dtolpin.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Thu, 19 Aug 2021 17:59:33 +0300</lastBuildDate><atom:link href="http://dtolpin.github.io/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>Stochastic conditioning</title>
+      <title>Double Speed Replay</title>
+      <link>http://dtolpin.github.io/posts/double-speed-replay/</link>
+      <pubDate>Thu, 19 Aug 2021 17:59:33 +0300</pubDate>
+      
+      <guid>http://dtolpin.github.io/posts/double-speed-replay/</guid>
+      <description>Thanks to the plague, we teach over Zoom, and have our lectures recorded. Many students do not attend in real time and instead replay the recordings at their convenience, and at 2x speed.
+It is easy to label the students as superficial, but double speed replay has a perfectly valid though slightly embarrassing, for us the teachers, justification. When I was trained in public speaking, I was taught this basic technique for preparing a time-framed lecture:</description>
+    </item>
+    
+    <item>
+      <title>Stochastic Conditioning</title>
       <link>http://dtolpin.github.io/posts/stochastic-conditioning/</link>
       <pubDate>Mon, 09 Aug 2021 15:17:00 +0300</pubDate>
       
