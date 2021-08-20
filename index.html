@@ -1,7 +1,7 @@
 <!doctype html>
 <html lang="en">
   <head>
-	<meta name="generator" content="Hugo 0.85.0" />
+	<meta name="generator" content="Hugo 0.81.0" />
     <meta charset="utf-8">
 <meta http-equiv="x-ua-compatible" content="ie=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -107,7 +107,7 @@
         
         
     </header>
-    Thanks to the plague, we teach over Zoom, and have our lectures recorded. Many students do not attend in real time and instead replay the recordings at their convenience, and at 2x speed.
+    Thanks to the [plague(https://en.wikipedia.org/wiki/COVID-19_pandemic), we teach over Zoom, and have our lectures recorded. Many students do not attend in real time and instead replay the recordings at their convenience, and at 2x speed.
 It is easy to label the students as superficial, but double speed replay has a perfectly valid though slightly embarrassing, for us the teachers, justification. When I was trained in public speaking, I was taught this basic technique for preparing a time-framed lecture:
     <p></p>
     <a href="/posts/double-speed-replay/">Read More →</a>
@@ -121,7 +121,43 @@ It is easy to label the students as superficial, but double speed replay has a p
         <article class="blog-post">
     <header>
         <h2 class="blog-post-title">
-            <a class="text-dark" href="/posts/stochastic-conditioning/">Stochastic Conditioning</a>
+            <a class="text-dark" href="/posts/h2typ/">How To Train Your Program</a>
+        </h2>
+        
+        <h3 class="blog-post-subtitle">A probabilistic programming pattern for Bayesian learning from data</h3>
+        
+        
+
+
+<div class="blog-post-date text-secondary">
+    
+        Aug 10, 2021
+    
+    
+        by <span rel="author">David Tolpin</span>
+    
+</div>
+
+        
+        
+    </header>
+    arXiv | code
+The ultimate Bayesian approach to learning from data is embodied by hierarchical models. In a hierarchical model, each observation or a group of observations $y_i$ corresponding to a single item in the data set is conditioned on a parameter $\theta_i$, and all parameters are conditioned on a hyperparameter $\tau$: \begin{equation} \begin{aligned} \tau &amp; \sim H \\
+\theta_i &amp; \sim D(\tau) \\
+y_i &amp; \sim F(\theta_i) \end{aligned} \label{eqn:hier} \end{equation}
+    <p></p>
+    <a href="/posts/h2typ/">Read More →</a>
+</article>
+
+    
+
+
+
+    
+        <article class="blog-post">
+    <header>
+        <h2 class="blog-post-title">
+            <a class="text-dark" href="/posts/stochastic-conditioning/">Stochastic conditioning</a>
         </h2>
         
         <h3 class="blog-post-subtitle"><a href="https://icml.cc/virtual/2021/spotlight/8608">https://icml.cc/virtual/2021/spotlight/8608</a></h3>
@@ -148,40 +184,6 @@ y &amp; \sim \mathrm{Conditional}(x) \end{aligned} \end{equation}
 The questions is: what is observed?
     <p></p>
     <a href="/posts/stochastic-conditioning/">Read More →</a>
-</article>
-
-    
-
-
-
-    
-        <article class="blog-post">
-    <header>
-        <h2 class="blog-post-title">
-            <a class="text-dark" href="/posts/nypopu/">BDA Model Too Tough for Stan</a>
-        </h2>
-        
-        <h3 class="blog-post-subtitle">Estimating the population of NY state from sample summaries</h3>
-        
-        
-
-
-<div class="blog-post-date text-secondary">
-    
-        Aug 29, 2020
-    
-    
-        by <span rel="author">David Tolpin</span>
-    
-</div>
-
-        
-        
-    </header>
-    I taught a course on Bayesian data analysis, closely following the book by Andrew Gelman et al., but with the twist of using probabilistic programming, either Stan or Infergo, for all examples and exercises. However, it turned out that at least one important problem in the book is beyond the capabilities of Stan.
-This case study is inspired by Section 7.6 in Bayesian Data Analysis, originally a paper published in 1983 by Ronald Rubin.
-    <p></p>
-    <a href="/posts/nypopu/">Read More →</a>
 </article>
 
     
@@ -288,15 +290,15 @@ This case study is inspired by Section 7.6 in Bayesian Data Analysis, originally
         </li>
         
         <li>
-            <a href="/posts/stochastic-conditioning/">Stochastic Conditioning</a>
+            <a href="/posts/h2typ/">How To Train Your Program</a>
+        </li>
+        
+        <li>
+            <a href="/posts/stochastic-conditioning/">Stochastic conditioning</a>
         </li>
         
         <li>
             <a href="/posts/nypopu/">BDA Model Too Tough for Stan</a>
-        </li>
-        
-        <li>
-            <a href="/posts/weighted-white/">There Are No Outliers</a>
         </li>
         
     </ol>

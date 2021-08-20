@@ -211,16 +211,16 @@ the new data item.  The problem is, of course, that we infer
 and the model must be, somewhat unconventionally, conditioned on
 the distributions of $\theta_i$.</p>
 <p>However, a recently introduced notion of <a href="http://proceedings.mlr.press/v139/tolpin21a.html">stochastic
-conditioning</a> makes conditioning on distributions
-of $\theta_i$ possible, both theoretically and in the practical
-case when the posteriors of $\theta_i$ are approximated using
-Monte Carlo samples. Moreover, conditioning the model both
-<em>stochastically</em> on the posterior distributions of
-$\theta_i$ on training data and <em>deterministically</em> on
-new data $y_k$ yields the same posterior distribution of
-$\theta_k$ as inference on the full hierarchical model. Based on
-this, we propose the ‘stump-and-fungus’ pattern for learning
-from data in probabilistic programs:</p>
+conditioning</a>
+makes conditioning on distributions of $\theta_i$ possible, both
+theoretically and in the practical case when the posteriors of
+$\theta_i$ are approximated using Monte Carlo samples. Moreover,
+conditioning the model both <em>stochastically</em> on the posterior
+distributions of $\theta_i$ on training data and
+<em>deterministically</em> on new data $y_k$ yields the same posterior
+distribution of $\theta_k$ as inference on the full hierarchical
+model. Based on this, we propose the ‘stump-and-fungus’ pattern
+for learning from data in probabilistic programs:</p>
 <ul>
 <li>Training is accomplished through inference on a
 hierarchical model, in the usual way.</li>
@@ -353,11 +353,15 @@ training outcomes in inference.</p>
     <ol class="list-unstyled">
         
         <li>
-            <a href="/posts/h2typ/">How To Train Your Program</a>
+            <a href="/posts/double-speed-replay/">Double Speed Replay</a>
         </li>
         
         <li>
             <a href="/posts/">Posts</a>
+        </li>
+        
+        <li>
+            <a href="/posts/h2typ/">How To Train Your Program</a>
         </li>
         
         <li>
@@ -366,10 +370,6 @@ training outcomes in inference.</p>
         
         <li>
             <a href="/posts/nypopu/">BDA Model Too Tough for Stan</a>
-        </li>
-        
-        <li>
-            <a href="/posts/weighted-white/">There Are No Outliers</a>
         </li>
         
     </ol>
