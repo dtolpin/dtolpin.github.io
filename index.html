@@ -1,7 +1,7 @@
 <!doctype html>
 <html lang="en">
   <head>
-	<meta name="generator" content="Hugo 0.81.0" />
+	<meta name="generator" content="Hugo 0.91.2" />
     <meta charset="utf-8">
 <meta http-equiv="x-ua-compatible" content="ie=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -31,9 +31,9 @@
 
     <link href="http://dtolpin.github.io/css/style.css" rel="stylesheet">
 
-    
-    <link href="http://dtolpin.github.io/index.xml" rel="alternate" type="application/rss+xml" title="Offtopia — nothing personal" />
-    
+	
+		/index.xml
+	
 
     
 
@@ -142,9 +142,7 @@ It is easy to label the students as superficial, but double speed replay has a p
         
     </header>
     arXiv | code
-The ultimate Bayesian approach to learning from data is embodied by hierarchical models. In a hierarchical model, each observation or a group of observations $y_i$ corresponding to a single item in the data set is conditioned on a parameter $\theta_i$, and all parameters are conditioned on a hyperparameter $\tau$: \begin{equation} \begin{aligned} \tau &amp; \sim H \\
-\theta_i &amp; \sim D(\tau) \\
-y_i &amp; \sim F(\theta_i) \end{aligned} \label{eqn:hier} \end{equation}
+The ultimate Bayesian approach to learning from data is embodied by hierarchical models. In a hierarchical model, each observation or a group of observations $y_i$ corresponding to a single item in the data set is conditioned on a parameter $\theta_i$, and all parameters are conditioned on a hyperparameter $\tau$: \begin{equation} \begin{aligned} \tau &amp; \sim H \\ \theta_i &amp; \sim D(\tau) \\ y_i &amp; \sim F(\theta_i) \end{aligned} \label{eqn:hier} \end{equation}
     <p></p>
     <a href="/posts/h2typ/">Read More →</a>
 </article>
@@ -178,8 +176,7 @@ y_i &amp; \sim F(\theta_i) \end{aligned} \label{eqn:hier} \end{equation}
         
     </header>
     Probabilistic programs implement statistical models. Commonly, probabilistic programs follow the Bayesian generative pattern:
-\begin{equation} \begin{aligned} x &amp; \sim \mathrm{Prior} \\
-y &amp; \sim \mathrm{Conditional}(x) \end{aligned} \end{equation}
+\begin{equation} \begin{aligned} x &amp; \sim \mathrm{Prior} \\ y &amp; \sim \mathrm{Conditional}(x) \end{aligned} \end{equation}
  A prior is imposed on the latent variable $x$. Then, observations $y$ are drawn from a distribution conditioned on $x$.  The program and the observations are passed to an inference algorithm which infers the posterior of latent variable $x$.
 The questions is: what is observed?
     <p></p>

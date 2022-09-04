@@ -24,9 +24,7 @@ It is easy to label the students as superficial, but double speed replay has a p
       
       <guid>http://dtolpin.github.io/posts/h2typ/</guid>
       <description>arXiv | code
-The ultimate Bayesian approach to learning from data is embodied by hierarchical models. In a hierarchical model, each observation or a group of observations $y_i$ corresponding to a single item in the data set is conditioned on a parameter $\theta_i$, and all parameters are conditioned on a hyperparameter $\tau$: \begin{equation} \begin{aligned} \tau &amp;amp; \sim H \\
-\theta_i &amp;amp; \sim D(\tau) \\
-y_i &amp;amp; \sim F(\theta_i) \end{aligned} \label{eqn:hier} \end{equation}</description>
+The ultimate Bayesian approach to learning from data is embodied by hierarchical models. In a hierarchical model, each observation or a group of observations $y_i$ corresponding to a single item in the data set is conditioned on a parameter $\theta_i$, and all parameters are conditioned on a hyperparameter $\tau$: \begin{equation} \begin{aligned} \tau &amp;amp; \sim H \\ \theta_i &amp;amp; \sim D(\tau) \\ y_i &amp;amp; \sim F(\theta_i) \end{aligned} \label{eqn:hier} \end{equation}</description>
     </item>
     
     <item>
@@ -36,8 +34,7 @@ y_i &amp;amp; \sim F(\theta_i) \end{aligned} \label{eqn:hier} \end{equation}</de
       
       <guid>http://dtolpin.github.io/posts/stochastic-conditioning/</guid>
       <description>Probabilistic programs implement statistical models. Commonly, probabilistic programs follow the Bayesian generative pattern:
-\begin{equation} \begin{aligned} x &amp;amp; \sim \mathrm{Prior} \\
-y &amp;amp; \sim \mathrm{Conditional}(x) \end{aligned} \end{equation}
+\begin{equation} \begin{aligned} x &amp;amp; \sim \mathrm{Prior} \\ y &amp;amp; \sim \mathrm{Conditional}(x) \end{aligned} \end{equation}
  A prior is imposed on the latent variable $x$. Then, observations $y$ are drawn from a distribution conditioned on $x$.  The program and the observations are passed to an inference algorithm which infers the posterior of latent variable $x$.
 The questions is: what is observed?</description>
     </item>

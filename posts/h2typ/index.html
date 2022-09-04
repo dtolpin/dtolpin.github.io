@@ -7,21 +7,17 @@
 
 <meta property="og:title" content="How To Train Your Program" />
 <meta property="og:description" content="arXiv | code
-The ultimate Bayesian approach to learning from data is embodied by hierarchical models. In a hierarchical model, each observation or a group of observations $y_i$ corresponding to a single item in the data set is conditioned on a parameter $\theta_i$, and all parameters are conditioned on a hyperparameter $\tau$: \begin{equation} \begin{aligned} \tau &amp; \sim H \\
-\theta_i &amp; \sim D(\tau) \\
-y_i &amp; \sim F(\theta_i) \end{aligned} \label{eqn:hier} \end{equation}" />
+The ultimate Bayesian approach to learning from data is embodied by hierarchical models. In a hierarchical model, each observation or a group of observations $y_i$ corresponding to a single item in the data set is conditioned on a parameter $\theta_i$, and all parameters are conditioned on a hyperparameter $\tau$: \begin{equation} \begin{aligned} \tau &amp; \sim H \\ \theta_i &amp; \sim D(\tau) \\ y_i &amp; \sim F(\theta_i) \end{aligned} \label{eqn:hier} \end{equation}" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="http://dtolpin.github.io/posts/h2typ/" /><meta property="article:section" content="posts" />
-<meta property="article:published_time" content="2021-08-10T12:00:00&#43;03:00" />
-<meta property="article:modified_time" content="2021-08-10T12:00:00&#43;03:00" />
+<meta property="article:published_time" content="2021-08-10T12:00:00+03:00" />
+<meta property="article:modified_time" content="2021-08-10T12:00:00+03:00" />
 
 
 <meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="How To Train Your Program"/>
 <meta name="twitter:description" content="arXiv | code
-The ultimate Bayesian approach to learning from data is embodied by hierarchical models. In a hierarchical model, each observation or a group of observations $y_i$ corresponding to a single item in the data set is conditioned on a parameter $\theta_i$, and all parameters are conditioned on a hyperparameter $\tau$: \begin{equation} \begin{aligned} \tau &amp; \sim H \\
-\theta_i &amp; \sim D(\tau) \\
-y_i &amp; \sim F(\theta_i) \end{aligned} \label{eqn:hier} \end{equation}"/>
+The ultimate Bayesian approach to learning from data is embodied by hierarchical models. In a hierarchical model, each observation or a group of observations $y_i$ corresponding to a single item in the data set is conditioned on a parameter $\theta_i$, and all parameters are conditioned on a hyperparameter $\tau$: \begin{equation} \begin{aligned} \tau &amp; \sim H \\ \theta_i &amp; \sim D(\tau) \\ y_i &amp; \sim F(\theta_i) \end{aligned} \label{eqn:hier} \end{equation}"/>
 
 
 
@@ -38,7 +34,7 @@ y_i &amp; \sim F(\theta_i) \end{aligned} \label{eqn:hier} \end{equation}"/>
 
     <link href="http://dtolpin.github.io/css/style.css" rel="stylesheet">
 
-    
+	
 
     
 
@@ -118,8 +114,8 @@ $\theta_i$, and all parameters are conditioned on a
 hyperparameter $\tau$:
 \begin{equation}
 \begin{aligned}
-\tau &amp; \sim H \\<br>
-\theta_i &amp; \sim D(\tau) \\<br>
+\tau &amp; \sim H \\
+\theta_i &amp; \sim D(\tau) \\
 y_i &amp; \sim F(\theta_i)
 \end{aligned}
 \label{eqn:hier}
@@ -138,8 +134,8 @@ the $i$th box and, indirectly, for draws from all other boxes.
 This is formalized by the following hierarchical model:
 \begin{align}
 \begin{aligned}
-\tau &amp; \sim \mathrm{Beta}(1, 1) \\<br>
-\theta_i &amp; \sim \mathrm{Binomial}(K, \tau) \\<br>
+\tau &amp; \sim \mathrm{Beta}(1, 1) \\
+\theta_i &amp; \sim \mathrm{Binomial}(K, \tau) \\
 y_{ij} &amp; \sim \mathrm{Bernoulli}\left(\frac {\theta_i} K\right)
 \end{aligned}
 \label{eqn:marbles}
@@ -168,7 +164,7 @@ assumed to be drawn from a known distribution $F$ with
 unobserved parameter $\theta_i$, $y_{ij} \sim F(\theta_i)$.
 $\theta_i$ are assumed to be drawn from a common distribution
 $H$. Our goal is to devise a scheme that, given a subset $Y
-\subset \mathcal{Y}$, the _training set_, infers the
+\subset \mathcal{Y}$, the <em>training set</em>, infers the
 posterior distribution of $\theta_k|Y, y_k$ for any $y_k \in
 \mathcal{Y}$ in a shorter amortized time than running inference
 on a hierarchical model $Y \cup {y_k}$.  By amortized time we
@@ -231,10 +227,10 @@ mixture distribution of $\theta_i$ of all groups.</li>
 model is employed:
 \begin{equation}
 \begin{aligned}
-\tilde \theta &amp; \sim \mathrm{Hierarchical}(Y) \\<br>
-&mdash;&amp;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash; \\<br>
-\tau &amp; \sim  H \\<br>
-\tilde \theta, \theta &amp;|\tau \sim D(\tau) \\<br>
+\tilde \theta &amp; \sim \mathrm{Hierarchical}(Y) \\
+&mdash;&amp;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash; \\
+\tau &amp; \sim  H \\
+\tilde \theta, \theta &amp;|\tau \sim D(\tau) \\
 y&amp;|\theta \sim F(\theta)
 \end{aligned}
 \end{equation}</li>
@@ -261,9 +257,9 @@ shown in Figure 1.</p>
 is to perform inference on a hierarchical model:
 \begin{equation}
 \begin{aligned}
-\alpha, \beta &amp; \sim \mathrm{Uniform}(0, \infty) \\<br>
+\alpha, \beta &amp; \sim \mathrm{Uniform}(0, \infty) \\
 p_i&amp;|\alpha, \beta \sim \mathrm{Beta}(\alpha, \beta)
-\\<br>
+\\
 y_i&amp;|p_i \sim Binomial(n_i, p_i)
 \end{aligned}
 \end{equation}
@@ -278,10 +274,10 @@ new experiment.</p>
 the problem:
 \begin{equation}
 \begin{aligned}
-p_{-k} &amp; \sim  \mathrm{Hierarchical}(n_{-k}, y_{-k}) \\<br>
-&mdash;&amp;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash; \\<br>
-\alpha, \beta &amp; \sim \mathrm{Uniform}(0, \infty) \\<br>
-p&amp;|\alpha, \beta \sim \mathrm{Beta}(\alpha, \beta) \\<br>
+p_{-k} &amp; \sim  \mathrm{Hierarchical}(n_{-k}, y_{-k}) \\
+&mdash;&amp;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash; \\
+\alpha, \beta &amp; \sim \mathrm{Uniform}(0, \infty) \\
+p&amp;|\alpha, \beta \sim \mathrm{Beta}(\alpha, \beta) \\
 y_k&amp;|p_k \sim \mathrm{Binomial}(n_k, p_k)
 \end{aligned}
 \label{eqn:rats-stump-and-fungus}
@@ -293,8 +289,8 @@ for $p$ inferred on the hierarchical model and through $N+1$
 applications of stump-and-fungus~(similar to leave-one-out
 cross-validation).  The <a href="https://infergo.org/">Infergo</a> source
 code of the model is provided in the appendix.  The inference
-was performed with HMC on the hierarchical model and _stochastic
-gradient_ HMC on the stump-and-fungus model. 1000 samples were
+was performed with HMC on the hierarchical model and <em>stochastic
+gradient</em> HMC on the stump-and-fungus model. 1000 samples were
 used to visualize the posterior. One can see that the posteriors
 obtained via either method appear to be the same, except for
 small discrepancies apparently caused by finite sample size
