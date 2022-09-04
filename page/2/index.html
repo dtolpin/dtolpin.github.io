@@ -87,6 +87,42 @@
         <article class="blog-post">
     <header>
         <h2 class="blog-post-title">
+            <a class="text-dark" href="/posts/stochastic-conditioning/">Stochastic conditioning</a>
+        </h2>
+        
+        <h3 class="blog-post-subtitle"><a href="https://icml.cc/virtual/2021/spotlight/8608">https://icml.cc/virtual/2021/spotlight/8608</a></h3>
+        
+        
+
+
+<div class="blog-post-date text-secondary">
+    
+        Aug 9, 2021
+    
+    
+        by <span rel="author">David Tolpin</span>
+    
+</div>
+
+        
+        
+    </header>
+    Probabilistic programs implement statistical models. Commonly, probabilistic programs follow the Bayesian generative pattern:
+\begin{equation} \begin{aligned} x &amp; \sim \mathrm{Prior} \\ y &amp; \sim \mathrm{Conditional}(x) \end{aligned} \end{equation}
+ A prior is imposed on the latent variable $x$. Then, observations $y$ are drawn from a distribution conditioned on $x$.  The program and the observations are passed to an inference algorithm which infers the posterior of latent variable $x$.
+The questions is: what is observed?
+    <p></p>
+    <a href="/posts/stochastic-conditioning/">Read More →</a>
+</article>
+
+    
+
+
+
+    
+        <article class="blog-post">
+    <header>
+        <h2 class="blog-post-title">
             <a class="text-dark" href="/posts/nypopu/">BDA Model Too Tough for Stan</a>
         </h2>
         
@@ -145,38 +181,6 @@ This case study is inspired by Section 7.6 in Bayesian Data Analysis, originally
 However, behind the Gaussian process stands an assumption that all observations come from a Gaussian distribution with constant noise and the mean lying on a smooth function of time.
     <p></p>
     <a href="/posts/weighted-white/">Read More →</a>
-</article>
-
-    
-
-
-
-    
-        <article class="blog-post">
-    <header>
-        <h2 class="blog-post-title">
-            <a class="text-dark" href="/posts/goid/">A Go Transgression</a>
-        </h2>
-        
-        
-
-
-<div class="blog-post-date text-secondary">
-    
-        Apr 2, 2019
-    
-    
-        by <span rel="author">David Tolpin</span>
-    
-</div>
-
-        
-        
-    </header>
-    Go gives the programmer introspection into every aspect of the language, and of a running program. But to one thing the programmer does not have access, and it is the goroutine identifier. Because the day the programmers know the goroutine identifier, they create goroutine-local storage through shared access and mutexes, and shall surely die.
-In Infergo, I had to have goroutine-local storage. Here is how I got efficient goroutine-local storage in Go.
-    <p></p>
-    <a href="/posts/goid/">Read More →</a>
 </article>
 
     
@@ -244,8 +248,21 @@ In Infergo, I had to have goroutine-local storage. Here is how I got efficient g
                 
             
             
+                <li class="page-item disabled">
+                    <span class="page-link" aria-hidden="true">&hellip;</span>
+                </li>
+            
+        
+            
+            
+            
+            
+                
+                
+            
+            
                 <li class="page-item ">
-                    <a class="page-link" href="/page/4/">4</a>
+                    <a class="page-link" href="/page/5/">5</a>
                 </li>
             
         
@@ -254,7 +271,7 @@ In Infergo, I had to have goroutine-local storage. Here is how I got efficient g
         </li>
         
             <li class="page-item">
-                <a class="page-link" href="/page/4/" aria-label="Last"><span aria-hidden="true">&raquo;&raquo;</span></a>
+                <a class="page-link" href="/page/5/" aria-label="Last"><span aria-hidden="true">&raquo;&raquo;</span></a>
             </li>
         
     </ul>
@@ -275,11 +292,15 @@ In Infergo, I had to have goroutine-local storage. Here is how I got efficient g
     <ol class="list-unstyled">
         
         <li>
-            <a href="/posts/double-speed-replay/">Double Speed Replay</a>
+            <a href="/posts/how-they-fail/">How Data Scientists Fail</a>
         </li>
         
         <li>
             <a href="/posts/">Posts</a>
+        </li>
+        
+        <li>
+            <a href="/posts/double-speed-replay/">Double Speed Replay</a>
         </li>
         
         <li>
@@ -288,10 +309,6 @@ In Infergo, I had to have goroutine-local storage. Here is how I got efficient g
         
         <li>
             <a href="/posts/stochastic-conditioning/">Stochastic conditioning</a>
-        </li>
-        
-        <li>
-            <a href="/posts/nypopu/">BDA Model Too Tough for Stan</a>
         </li>
         
     </ol>

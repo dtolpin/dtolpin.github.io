@@ -86,6 +86,55 @@
         <article class="blog-post">
     <header>
         <h2 class="blog-post-title">
+            <a class="text-dark" href="/posts/how-they-fail/">How Data Scientists Fail</a>
+        </h2>
+        
+        <h3 class="blog-post-subtitle">What can go wrong in a data science task</h3>
+        
+        
+
+
+<div class="blog-post-date text-secondary">
+    
+        Sep 4, 2022
+    
+    
+        by <span rel="author">David Tolpin</span>
+    
+</div>
+
+        
+        
+    </header>
+    <p>I am going to job interviews, again. This time, a frequent
+request is: &ldquo;Tell us about a failed project&rdquo;. Of course, I never
+fail as a data scientist, how could I? A data science task
+involves a combination of domain knowledge and data, neither is
+held or produced by me, and a question someone else wants an
+answer to. All I do as a data scientist is encoding the domain
+knowledge as a model, updating the model&rsquo;s latent variables
+based on the data, and computing a quantitative answer to the
+question. There are ways to <a href="http://www.stat.columbia.edu/~gelman/book/">ensure adequacy of the model, check
+convergence of inference, and express uncertainty of the
+answer</a>.
+Just doing all these steps by the book ensures that there is
+absolutely no way to fail. Consider the task of classifying
+<a href="http://yann.lecun.com/exdb/mnist/">hand-written digits</a> &mdash;
+although different models may have different accuracy, there is
+no way to ‘fail’ as long as one does things as taught. Or is
+there?</p>
+    <p></p>
+    <a href="/posts/how-they-fail/">Read More →</a>
+</article>
+
+    
+
+
+
+    
+        <article class="blog-post">
+    <header>
+        <h2 class="blog-post-title">
             <a class="text-dark" href="/posts/double-speed-replay/">Double Speed Replay</a>
         </h2>
         
@@ -144,42 +193,6 @@ It is easy to label the students as superficial, but double speed replay has a p
 The ultimate Bayesian approach to learning from data is embodied by hierarchical models. In a hierarchical model, each observation or a group of observations $y_i$ corresponding to a single item in the data set is conditioned on a parameter $\theta_i$, and all parameters are conditioned on a hyperparameter $\tau$: \begin{equation} \begin{aligned} \tau &amp; \sim H \\ \theta_i &amp; \sim D(\tau) \\ y_i &amp; \sim F(\theta_i) \end{aligned} \label{eqn:hier} \end{equation}
     <p></p>
     <a href="/posts/h2typ/">Read More →</a>
-</article>
-
-    
-
-
-
-    
-        <article class="blog-post">
-    <header>
-        <h2 class="blog-post-title">
-            <a class="text-dark" href="/posts/stochastic-conditioning/">Stochastic conditioning</a>
-        </h2>
-        
-        <h3 class="blog-post-subtitle"><a href="https://icml.cc/virtual/2021/spotlight/8608">https://icml.cc/virtual/2021/spotlight/8608</a></h3>
-        
-        
-
-
-<div class="blog-post-date text-secondary">
-    
-        Aug 9, 2021
-    
-    
-        by <span rel="author">David Tolpin</span>
-    
-</div>
-
-        
-        
-    </header>
-    Probabilistic programs implement statistical models. Commonly, probabilistic programs follow the Bayesian generative pattern:
-\begin{equation} \begin{aligned} x &amp; \sim \mathrm{Prior} \\ y &amp; \sim \mathrm{Conditional}(x) \end{aligned} \end{equation}
- A prior is imposed on the latent variable $x$. Then, observations $y$ are drawn from a distribution conditioned on $x$.  The program and the observations are passed to an inference algorithm which infers the posterior of latent variable $x$.
-The questions is: what is observed?
-    <p></p>
-    <a href="/posts/stochastic-conditioning/">Read More →</a>
 </article>
 
     
@@ -278,11 +291,15 @@ The questions is: what is observed?
     <ol class="list-unstyled">
         
         <li>
-            <a href="/posts/double-speed-replay/">Double Speed Replay</a>
+            <a href="/posts/how-they-fail/">How Data Scientists Fail</a>
         </li>
         
         <li>
             <a href="/posts/">Posts</a>
+        </li>
+        
+        <li>
+            <a href="/posts/double-speed-replay/">Double Speed Replay</a>
         </li>
         
         <li>
@@ -291,10 +308,6 @@ The questions is: what is observed?
         
         <li>
             <a href="/posts/stochastic-conditioning/">Stochastic conditioning</a>
-        </li>
-        
-        <li>
-            <a href="/posts/nypopu/">BDA Model Too Tough for Stan</a>
         </li>
         
     </ol>

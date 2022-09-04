@@ -6,7 +6,32 @@
     <description>Recent content on Offtopia — nothing personal</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Thu, 19 Aug 2021 17:59:33 +0300</lastBuildDate><atom:link href="http://dtolpin.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sun, 04 Sep 2022 16:09:33 +0300</lastBuildDate><atom:link href="http://dtolpin.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>How Data Scientists Fail</title>
+      <link>http://dtolpin.github.io/posts/how-they-fail/</link>
+      <pubDate>Sun, 04 Sep 2022 16:09:33 +0300</pubDate>
+      
+      <guid>http://dtolpin.github.io/posts/how-they-fail/</guid>
+      <description>&lt;p&gt;I am going to job interviews, again. This time, a frequent
+request is: &amp;ldquo;Tell us about a failed project&amp;rdquo;. Of course, I never
+fail as a data scientist, how could I? A data science task
+involves a combination of domain knowledge and data, neither is
+held or produced by me, and a question someone else wants an
+answer to. All I do as a data scientist is encoding the domain
+knowledge as a model, updating the model&amp;rsquo;s latent variables
+based on the data, and computing a quantitative answer to the
+question. There are ways to &lt;a href=&#34;http://www.stat.columbia.edu/~gelman/book/&#34;&gt;ensure adequacy of the model, check
+convergence of inference, and express uncertainty of the
+answer&lt;/a&gt;.
+Just doing all these steps by the book ensures that there is
+absolutely no way to fail. Consider the task of classifying
+&lt;a href=&#34;http://yann.lecun.com/exdb/mnist/&#34;&gt;hand-written digits&lt;/a&gt; &amp;mdash;
+although different models may have different accuracy, there is
+no way to ‘fail’ as long as one does things as taught. Or is
+there?&lt;/p&gt;</description>
+    </item>
+    
     <item>
       <title>Double Speed Replay</title>
       <link>http://dtolpin.github.io/posts/double-speed-replay/</link>
