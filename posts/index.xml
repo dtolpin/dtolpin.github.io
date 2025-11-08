@@ -2,87 +2,87 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Posts on Offtopia — nothing personal</title>
-    <link>http://dtolpin.github.io/posts/</link>
+    <link>https://dtolpin.github.io/posts/</link>
     <description>Recent content in Posts on Offtopia — nothing personal</description>
     <generator>Hugo</generator>
     <language>en-us</language>
     <lastBuildDate>Sun, 04 Sep 2022 16:09:33 +0300</lastBuildDate>
-    <atom:link href="http://dtolpin.github.io/posts/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://dtolpin.github.io/posts/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>How Data Scientists Fail</title>
-      <link>http://dtolpin.github.io/2022/09/how-data-scientists-fail/</link>
+      <link>https://dtolpin.github.io/2022/09/how-data-scientists-fail/</link>
       <pubDate>Sun, 04 Sep 2022 16:09:33 +0300</pubDate>
-      <guid>http://dtolpin.github.io/2022/09/how-data-scientists-fail/</guid>
+      <guid>https://dtolpin.github.io/2022/09/how-data-scientists-fail/</guid>
       <description>&lt;p&gt;I am going to job interviews, again. This time, a frequent&#xA;request is: &amp;ldquo;Tell us about a failed project&amp;rdquo;. Of course, I never&#xA;fail as a data scientist, how could I? A data science task&#xA;involves a combination of domain knowledge and data, neither is&#xA;held or produced by me, and a question someone else wants an&#xA;answer to. All I do as a data scientist is encoding the domain&#xA;knowledge as a model, updating the model&amp;rsquo;s latent variables&#xA;based on the data, and computing a quantitative answer to the&#xA;question. There are ways to &lt;a href=&#34;http://www.stat.columbia.edu/~gelman/book/&#34;&gt;ensure adequacy of the model, check&#xA;convergence of inference, and express uncertainty of the&#xA;answer&lt;/a&gt;.&#xA;Just doing all these steps by the book ensures that there is&#xA;absolutely no way to fail. Consider the task of classifying&#xA;&lt;a href=&#34;http://yann.lecun.com/exdb/mnist/&#34;&gt;hand-written digits&lt;/a&gt; &amp;mdash;&#xA;although different models may have different accuracy, there is&#xA;no way to ‘fail’ as long as one does things as taught. Or is&#xA;there?&lt;/p&gt;</description>
     </item>
     <item>
       <title>Double Speed Replay</title>
-      <link>http://dtolpin.github.io/2021/08/double-speed-replay/</link>
+      <link>https://dtolpin.github.io/2021/08/double-speed-replay/</link>
       <pubDate>Thu, 19 Aug 2021 17:59:33 +0300</pubDate>
-      <guid>http://dtolpin.github.io/2021/08/double-speed-replay/</guid>
+      <guid>https://dtolpin.github.io/2021/08/double-speed-replay/</guid>
       <description>&lt;p&gt;Thanks to the&#xA;&lt;a href=&#34;https://en.wikipedia.org/wiki/COVID-19_pandemic&#34;&gt;plague&lt;/a&gt;, we&#xA;teach over &lt;a href=&#34;http://zoom.us/&#34;&gt;Zoom&lt;/a&gt;, and have our lectures&#xA;recorded. Many students do not attend in real time and instead&#xA;replay the recordings at their convenience, and at &lt;strong&gt;2x speed&lt;/strong&gt;.&lt;/p&gt;&#xA;&lt;p&gt;It is easy to label the students as superficial, but double&#xA;speed replay has a perfectly valid though slightly embarrassing,&#xA;for us the teachers, justification. When I was trained in public&#xA;speaking, I was taught this basic technique for preparing a&#xA;time-framed lecture:&lt;/p&gt;</description>
     </item>
     <item>
       <title>How To Train Your Program</title>
-      <link>http://dtolpin.github.io/2021/08/how-to-train-your-program/</link>
+      <link>https://dtolpin.github.io/2021/08/how-to-train-your-program/</link>
       <pubDate>Tue, 10 Aug 2021 12:00:00 +0300</pubDate>
-      <guid>http://dtolpin.github.io/2021/08/how-to-train-your-program/</guid>
+      <guid>https://dtolpin.github.io/2021/08/how-to-train-your-program/</guid>
       <description>&lt;p&gt;&lt;a href=&#34;https://arxiv.org/abs/2105.03650&#34;&gt;arXiv&lt;/a&gt; | &lt;a href=&#34;https://bitbucket.org/dtolpin/h2typ-studies&#34;&gt;code&lt;/a&gt;&lt;/p&gt;&#xA;&lt;p&gt;The ultimate Bayesian approach to learning from data is embodied by&#xA;hierarchical models. In a hierarchical model,&#xA;each observation or a group of observations $y_i$ corresponding&#xA;to a single item in the data set is conditioned on a parameter&#xA;$\theta_i$, and all parameters are conditioned on a&#xA;hyperparameter $\tau$:&#xA;\begin{equation}&#xA;\begin{aligned}&#xA;\tau &amp;amp; \sim H \\&#xA;\theta_i &amp;amp; \sim D(\tau) \\&#xA;y_i &amp;amp; \sim F(\theta_i)&#xA;\end{aligned}&#xA;\label{eqn:hier}&#xA;\end{equation}&lt;/p&gt;</description>
     </item>
     <item>
       <title>Stochastic conditioning</title>
-      <link>http://dtolpin.github.io/2021/08/stochastic-conditioning/</link>
+      <link>https://dtolpin.github.io/2021/08/stochastic-conditioning/</link>
       <pubDate>Mon, 09 Aug 2021 15:17:00 +0300</pubDate>
-      <guid>http://dtolpin.github.io/2021/08/stochastic-conditioning/</guid>
+      <guid>https://dtolpin.github.io/2021/08/stochastic-conditioning/</guid>
       <description>&lt;p&gt;Probabilistic programs implement statistical models. Commonly,&#xA;probabilistic programs follow the Bayesian generative pattern:&lt;/p&gt;&#xA;&lt;p&gt;\begin{equation}&#xA;\begin{aligned}&#xA;x &amp;amp; \sim \mathrm{Prior} \\&#xA;y &amp;amp; \sim \mathrm{Conditional}(x)&#xA;\end{aligned}&#xA;\end{equation}&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;A prior is imposed on the latent variable $x$.&lt;/li&gt;&#xA;&lt;li&gt;Then, observations $y$ are drawn from a distribution conditioned&#xA;on $x$.&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;p&gt;The program and the observations are passed to an inference&#xA;algorithm which infers the posterior of latent variable $x$.&lt;/p&gt;</description>
     </item>
     <item>
       <title>BDA Model Too Tough for Stan</title>
-      <link>http://dtolpin.github.io/2020/08/bda-model-too-tough-for-stan/</link>
+      <link>https://dtolpin.github.io/2020/08/bda-model-too-tough-for-stan/</link>
       <pubDate>Sat, 29 Aug 2020 18:00:54 +0300</pubDate>
-      <guid>http://dtolpin.github.io/2020/08/bda-model-too-tough-for-stan/</guid>
+      <guid>https://dtolpin.github.io/2020/08/bda-model-too-tough-for-stan/</guid>
       <description>&lt;p&gt;I taught a course on Bayesian data analysis, closely following&#xA;&lt;a href=&#34;http://www.stat.columbia.edu/~gelman/book/&#34;&gt;the book by Andrew Gelman et&#xA;al.&lt;/a&gt;, but with the&#xA;twist of using probabilistic programming, either&#xA;&lt;a href=&#34;http://mc-stan.org/&#34;&gt;Stan&lt;/a&gt; or &lt;a href=&#34;http://infergo.org/&#34;&gt;Infergo&lt;/a&gt;,&#xA;for all examples and exercises. However, it turned out that at&#xA;least one important problem in the book is beyond the&#xA;capabilities of Stan.&lt;/p&gt;</description>
     </item>
     <item>
       <title>There Are No Outliers</title>
-      <link>http://dtolpin.github.io/2019/06/there-are-no-outliers/</link>
+      <link>https://dtolpin.github.io/2019/06/there-are-no-outliers/</link>
       <pubDate>Mon, 03 Jun 2019 17:39:28 +0300</pubDate>
-      <guid>http://dtolpin.github.io/2019/06/there-are-no-outliers/</guid>
+      <guid>https://dtolpin.github.io/2019/06/there-are-no-outliers/</guid>
       <description>&lt;p&gt;Gaussian processes are great for time series forecasting. The&#xA;time series does not have to be regular &amp;mdash; &amp;lsquo;missing data&amp;rsquo; is&#xA;not an issue.  A kernel can be chosen to express trend,&#xA;seasonality, various degrees of smoothness, non-stationarity.&#xA;External predictors can be added as input dimensions. A prior&#xA;can be chosen to provide a reasonable forecast when little&#xA;or even no data is available.&lt;/p&gt;</description>
     </item>
     <item>
       <title>A Go Transgression</title>
-      <link>http://dtolpin.github.io/2019/04/a-go-transgression/</link>
+      <link>https://dtolpin.github.io/2019/04/a-go-transgression/</link>
       <pubDate>Tue, 02 Apr 2019 10:19:13 +0300</pubDate>
-      <guid>http://dtolpin.github.io/2019/04/a-go-transgression/</guid>
+      <guid>https://dtolpin.github.io/2019/04/a-go-transgression/</guid>
       <description>&lt;p&gt;&lt;a href=&#34;http://golang.org/&#34;&gt;Go&lt;/a&gt; gives the programmer introspection into&#xA;every aspect of &lt;a href=&#34;https://godoc.org/reflect&#34;&gt;the language&lt;/a&gt;, and&#xA;of a &lt;a href=&#34;https://godoc.org/runtime&#34;&gt;running program&lt;/a&gt;. But to one&#xA;thing the programmer does not have access, and it is the&#xA;goroutine identifier. Because the day the programmers know the&#xA;goroutine identifier, they create goroutine-local storage&#xA;through shared access and mutexes, and &lt;a href=&#34;https://www.kingjamesbibleonline.org/Genesis-2-17/&#34;&gt;shall surely&#xA;die&lt;/a&gt;.&lt;/p&gt;</description>
     </item>
     <item>
       <title>Go Programs That Learn</title>
-      <link>http://dtolpin.github.io/2018/11/go-programs-that-learn/</link>
+      <link>https://dtolpin.github.io/2018/11/go-programs-that-learn/</link>
       <pubDate>Wed, 28 Nov 2018 18:19:13 +0200</pubDate>
-      <guid>http://dtolpin.github.io/2018/11/go-programs-that-learn/</guid>
+      <guid>https://dtolpin.github.io/2018/11/go-programs-that-learn/</guid>
       <description>&lt;p&gt;There are so many &lt;a href=&#34;https://en.wikipedia.org/wiki/Probabilistic_programming_language#List_of_probabilistic_programming_languages&#34;&gt;probabilistic programming&#xA;languages&lt;/a&gt; that&#xA;it is hard to choose one. Because it is so hard to choose one,&#xA;a probabilistic programmer has two options:&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;invent a new probabilistic programming language, or&lt;/li&gt;&#xA;&lt;li&gt;write probabilistic programs in a regular programming&#xA;language.&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;p&gt;The former choice is easier to make, that&amp;rsquo;s why there are so&#xA;many different probabilistic programming languages.  But writing&#xA;programs is so much easier in a regular language, and programs&#xA;in regular languages can do many useful things. Any modern&#xA;general-purpose programming language is suitable for&#xA;probabilistic programming. &lt;a href=&#34;https://infergo.org&#34;&gt;Take Go, for&#xA;example&lt;/a&gt;.&lt;/p&gt;</description>
     </item>
     <item>
       <title>A Small Program Can Be a Big Challenge</title>
-      <link>http://dtolpin.github.io/2018/08/a-small-program-can-be-a-big-challenge/</link>
+      <link>https://dtolpin.github.io/2018/08/a-small-program-can-be-a-big-challenge/</link>
       <pubDate>Wed, 15 Aug 2018 22:49:53 +0300</pubDate>
-      <guid>http://dtolpin.github.io/2018/08/a-small-program-can-be-a-big-challenge/</guid>
+      <guid>https://dtolpin.github.io/2018/08/a-small-program-can-be-a-big-challenge/</guid>
       <description>&lt;p&gt;[Poster: &lt;a href=&#34;http://offtopia.net/ppv-pp-poster/&#34;&gt;html&lt;/a&gt;, &lt;a href=&#34;http://offtopia.net/ppv-pp-poster/poster.pdf&#34;&gt;pdf&lt;/a&gt;]&lt;/p&gt;&#xA;&lt;p&gt;A good part of today&amp;rsquo;s internet content is created and shaped&#xA;for delivering advertisements. Internet pages are interconnected&#xA;by links, and a visitor is likely to open multiple pages from&#xA;the same publisher.  After a while, visitors leave the web site,&#xA;either due to clicking on an advertisement or just because they&#xA;get bored and switch to other content or activity.&lt;/p&gt;</description>
     </item>
     <item>
       <title>How to Hug a Data Scientist</title>
-      <link>http://dtolpin.github.io/2018/04/how-to-hug-a-data-scientist/</link>
+      <link>https://dtolpin.github.io/2018/04/how-to-hug-a-data-scientist/</link>
       <pubDate>Mon, 09 Apr 2018 14:19:13 +0300</pubDate>
-      <guid>http://dtolpin.github.io/2018/04/how-to-hug-a-data-scientist/</guid>
+      <guid>https://dtolpin.github.io/2018/04/how-to-hug-a-data-scientist/</guid>
       <description>&lt;p&gt;Sometimes, a data scientist is the first engineer in a software&#xA;project. More often though a data scientist joins the team when&#xA;there is working code, ready for deploying or even deployed.&#xA;Here is how the latter case rolls out:&lt;/p&gt;&#xA;&lt;blockquote&gt;&#xA;&lt;p&gt;We write a piece of software. Thanks to continous delivery,&#xA;we fix our bugs quickly and release new improved versions on&#xA;time. Our code is fully tested, easy to change, and pieces&#xA;fit each other smoothly.&lt;/p&gt;</description>
     </item>
     <item>
       <title>On Brain Teasers at Job Interviews</title>
-      <link>http://dtolpin.github.io/2017/06/on-brain-teasers-at-job-interviews/</link>
+      <link>https://dtolpin.github.io/2017/06/on-brain-teasers-at-job-interviews/</link>
       <pubDate>Mon, 26 Jun 2017 13:08:07 +0300</pubDate>
-      <guid>http://dtolpin.github.io/2017/06/on-brain-teasers-at-job-interviews/</guid>
+      <guid>https://dtolpin.github.io/2017/06/on-brain-teasers-at-job-interviews/</guid>
       <description>&lt;p&gt;I went to a few job interviews during past weeks. Most interviewers asked me to&#xA;tell about problems I had solved, and to suggest a solution to a problem they&#xA;really needed to solve. Some though offered me to solve brain teasers —&#xA;problems they (or others) invented to test candidates. I solved most, but I&#xA;felt bad about it. I can imagine many bright candidates who would fail an&#xA;interview because of brain teasers.&lt;/p&gt;</description>
     </item>
   </channel>
