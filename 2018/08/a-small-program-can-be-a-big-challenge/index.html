@@ -1,0 +1,469 @@
+<!DOCTYPE html>
+<html lang="en" >
+
+  <head>
+    <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"><meta property="og:url" content="http://dtolpin.github.io/2018/08/a-small-program-can-be-a-big-challenge/">
+  <meta property="og:site_name" content="Offtopia — nothing personal">
+  <meta property="og:title" content="A Small Program Can Be a Big Challenge">
+  <meta property="og:description" content="[Poster: html, pdf]
+A good part of today’s internet content is created and shaped for delivering advertisements. Internet pages are interconnected by links, and a visitor is likely to open multiple pages from the same publisher. After a while, visitors leave the web site, either due to clicking on an advertisement or just because they get bored and switch to other content or activity.">
+  <meta property="og:locale" content="en_us">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="posts">
+    <meta property="article:published_time" content="2018-08-15T22:49:53+03:00">
+    <meta property="article:modified_time" content="2018-08-15T22:49:53+03:00">
+
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="A Small Program Can Be a Big Challenge">
+  <meta name="twitter:description" content="[Poster: html, pdf]
+A good part of today’s internet content is created and shaped for delivering advertisements. Internet pages are interconnected by links, and a visitor is likely to open multiple pages from the same publisher. After a while, visitors leave the web site, either due to clicking on an advertisement or just because they get bored and switch to other content or activity.">
+<meta name="generator" content="Hugo 0.152.2">
+
+
+    
+<script type="application/ld+json">
+{
+  "@context": "http://schema.org",
+  "@type": "BlogPosting",
+  "headline": "A Small Program Can Be a Big Challenge",
+  "url": "http://dtolpin.github.io/2018/08/a-small-program-can-be-a-big-challenge/",
+  "wordCount": "1514",
+  "datePublished": "2018-08-15T22:49:53+03:00",
+  "dateModified": "2018-08-15T22:49:53+03:00",
+  "author": {
+    "@type": "Person",
+    "name": "David Tolpin"
+  }
+}
+</script>
+
+
+
+    <link rel="canonical" href="http://dtolpin.github.io/2018/08/a-small-program-can-be-a-big-challenge/">
+
+    <title>A Small Program Can Be a Big Challenge | Offtopia — nothing personal</title>
+
+    
+    <!-- combined, minified CSS -->
+    
+    <link href="http://dtolpin.github.io/css/style.c6ba80bc50669557645abe05f86b73cc5af84408ed20f1551a267bc19ece8228.css" rel="stylesheet" integrity="sha256-xrqAvFBmlVdkWr4F&#43;GtzzFr4RAjtIPFVGiZ7wZ7Ogig=" crossorigin="anonymous">
+    
+    
+    <link href="http://dtolpin.github.io/css/substyle.f6bbec6fb714a00539d34a74ab7edb3a54048cb7745882eea95ba078edf0803c.css" rel="stylesheet" integrity="sha256-9rvsb7cUoAU500p0q37bOlQEjLd0WILuqVugeO3wgDw=" crossorigin="anonymous">
+
+    <!-- minified Font Awesome for SVG icons -->
+    
+    <script defer src="http://dtolpin.github.io/js/fontawesome.min.f5072c55a0721857184db93a50561d7dc13975b4de2e19db7f81eb5f3fa57270.js" integrity="sha256-9QcsVaByGFcYTbk6UFYdfcE5dbTeLhnbf4HrXz&#43;lcnA=" crossorigin="anonymous"></script>
+
+    <!-- RSS 2.0 feed -->
+    
+
+    
+
+  </head>
+
+  <body>
+
+    
+    <div class="blog-masthead">
+      <div class="container">
+        <nav class="nav blog-nav">
+          <a class="nav-link " href="http://dtolpin.github.io/">Home</a>
+          
+          <a class="nav-link" href="/about/" title="">About</a>
+          
+          
+          <a class="nav-link" href="/academic/" title="">Academic</a>
+          
+        </nav>
+      </div>
+    </div>
+    
+
+    
+    
+    <header class="blog-header">
+      <div class="container">
+        <h1 class="blog-title" dir="auto"><a href="http://dtolpin.github.io/" rel="home">Offtopia — nothing personal</a></h1>
+        
+      </div>
+    </header>
+    
+    
+
+    
+    <div class="container">
+      <div class="row">
+        <div class="col-sm-8 blog-main">
+
+          
+
+
+<article class="blog-post">
+  <header>
+    <h2 class="blog-post-title" dir="auto"><a href="http://dtolpin.github.io/2018/08/a-small-program-can-be-a-big-challenge/">A Small Program Can Be a Big Challenge</a></h2>
+    
+    <h3 class="blog-post-subtitle">A probabilistic model for session depth estimation</h3>
+    
+    <p class="blog-post-meta">
+<time datetime="2018-08-15T22:49:53+03:00">Wed Aug 15, 2018</time>
+</p>
+  </header>
+  <p>[Poster: <a href="http://offtopia.net/ppv-pp-poster/">html</a>, <a href="http://offtopia.net/ppv-pp-poster/poster.pdf">pdf</a>]</p>
+<p>A good part of today&rsquo;s internet content is created and shaped
+for delivering advertisements. Internet pages are interconnected
+by links, and a visitor is likely to open multiple pages from
+the same publisher.  After a while, visitors leave the web site,
+either due to clicking on an advertisement or just because they
+get bored and switch to other content or activity.</p>
+<p>The probability distribution of the <em>session depth</em> — the  number
+of pages opened during a single visit — is an important metric
+for the publisher. It is used both to estimate revenues from the
+advertising campaign and to optimize the web site: links between
+pages, page content, and advertisements appearing on each page.
+Session depth constitutes a counting time series.  There are
+established techniques for forecasting in counting time series,
+however those techniques are mostly based on assumption that the
+time series realizes a unimodal distribution at every point in
+time, such as the
+<a href="https://en.wikipedia.org/wiki/Poisson_distribution">Poisson</a> or
+the <a href="https://en.wikipedia.org/wiki/Geometric_distribution">Geometric
+distribution</a>.
+This assumption is inadequate for session depth time series:
+there are usually multiple pages where the visitor is most
+likely to leave; this commands a multi-modal predictive
+distribution.</p>
+<p>A sequence of <a href="https://en.wikipedia.org/wiki/Beta-binomial_distribution">Beta-Bernoulli
+distributions</a>,
+one for each page, gives a reasonable generative model for
+session depth.  There are of course dependencies between pages
+— a user which is likely to leave on a certain page is also
+likely to leave on &lsquo;similar&rsquo; pages, — but we can ignore these
+dependencies in an initial approximation. One phenomenon should
+be accounted for though — the website evolves as new pages are
+published, existing pages edited, and links between pages are added
+or removed.  The posterior distribution should incorporate
+uncertainty due to such changes.</p>
+<h2 id="the-generative-model-of-a-visit">The Generative Model of a Visit</h2>
+<p>We view a visit as a sequence of opened pages of length at most $N$.
+A Beta-Bernoulli distribution $Beta\mbox{-}Bernoulli(\alpha_i, \beta_i)$
+for the $i$th page for each $i \in {1, \ldots, N}$ models the
+event of leaving after visiting the page.  We draw the session depth
+by passing through the sequence until the ‘left’ event (Algorithm 1).</p>
+<hr>
+<p><!-- raw HTML omitted -->Algorithm 1:<!-- raw HTML omitted --> Drawing the session depth</p>
+<hr>
+<!-- raw HTML omitted -->
+<p>To update the beliefs based on the observed session depth $K$, we
+just increment $\beta_i$ if the visitor continued to the next
+page, that is $i &lt; K$, or $\alpha_i$ if the visitor left at the
+$i$th page ($i = K$). We must also account for the uncertainty
+due to content changes (we are not informed about the changes).
+After trying a few alternatives, we represent uncertainty as a
+cap $C$ on the amount of evidence which
+we collect for each page. If $\alpha_i + \beta_i$ exceeds $C$ after
+updating, we scale down both $\alpha_i$ and $\beta_i$ by the
+same factor, such as the probability of leaving remains the same,
+but $\alpha_i + \beta_i$ is equal to $C$ (Algorithm 2).</p>
+<hr>
+<p><!-- raw HTML omitted -->Algorithm 2:<!-- raw HTML omitted --> Updating the beliefs based on the observed
+session depth.</p>
+<hr>
+<!-- raw HTML omitted -->
+<p>The animation below shows running the model on 1000 visits,
+where the average session depth gradually decreases
+from 5 to 1. Note how the mean gradually and smoothly follows
+the trend, despite very noisy data. $C$ was set to 1000.</p>
+<p><img src="/images/session-depth/FAKE-1000.gif" alt="1000"></p>
+<p>Obviously, we do not know the value of $C$ and want to infer
+$C$ for each campaign based on observed session depth counts.
+The right value of $C$ is crucial for the best forecasting
+performance, notice how a smaller value of $C$ ($C=30$) affects
+prediction of the session depth on the same data:</p>
+<p><img src="/images/session-depth/FAKE-30.gif" alt="30"></p>
+<p>We turn to <a href="http://www.probabilistic-programming.org/wiki/Home">probabilistic programming</a> for this task, putting a
+prior on $C$ and running the inference on the history of
+session depth observations. We then infer the posterior
+distribution of $C$, and use the mean of the posterior for
+forecasting. An example of predicted $C$ values is in the
+histogram below.</p>
+<p><img src="/images/session-depth/FAKE-bandwidth.gif" alt="bandwidth"></p>
+<h2 id="probabilistic-programs">Probabilistic programs</h2>
+<blockquote>
+<p>The program code is at <a href="http://bitbucket.org/probprog/ppv-pp-paper">bitbucket.org/probprog/ppv-pp-paper</a>, in the <code>worksheets</code> folder.</p>
+</blockquote>
+<h3 id="prototype-in-anglican">Prototype in Anglican</h3>
+<p>For prototyping, we used <a href="http://anglican.ml">Anglican</a>. The model is straightforward
+to implement in Anglican, a Lisp dialect. Since we only have a
+single random variable to infer, <a href="https://en.wikipedia.org/wiki/Metropolis%E2%80%93Hastings_algorithm">Metropolis-Hastings Monte Carlo</a>
+performs well, and Anglican runtime is fast enough to produce
+10,000 samples in 8 seconds, given 100 observations.  However,
+there were reasons that prevented us from using Anglican in
+production, and we turned to other probabilistic programming
+environments.</p>
+<p>Namely, we looked for Python API, scalability, and support for
+efficient variational inference; <a href="http://edwardlib.org">Edward</a> and
+<a href="http://pyro.ai">Pyro</a> were two obvious candidates.</p>
+<h3 id="implementation-in-edward">Implementation in Edward</h3>
+<p>Edward is based on <a href="http://tensorfow.org">TensorFlow</a> and uses TensorFlow API for
+expressing flow control and variable updating. This results in
+more verbose code which is hard to read and debug. However,
+even when the challenge of expressing belief updates through
+tensor manipulations is overcome, an additional difficulty
+arises due to the complete separation between the generative
+model and the data in Edward. Our probabilistic program both
+conditions the distribution of $C$ and updates
+beliefs of leaving the article at each page based on the data.
+Specifying the model in a data-agnostic way is possible but
+inference would becomes unreasonably inefficient.
+In our simple case, belief updating and drawing the session
+depth can luckily be disentangled — the probability
+of leaving the campaign at each page does not depend on the
+updated beliefs for earlier pages. However, we still need to pass
+the data twice — both to the model and to inference.</p>
+<p>Edward supports both Metropolis-Hastings and <a href="https://en.wikipedia.org/wiki/Variational_Bayesian_methods">variational
+inference</a>. Metropolis-Hastings gave results consistent with the
+Anglican implementation. One would expect static graph,
+C++-based implementation of Metropolis-Hastings to run much
+faster than in Anglican, however due to complex code having
+to go through tensor manipulations, the performance was quite
+poor — Edward draws 10,000 samples in about 6 minutes, more than
+50 times slower than Anglican. At the time of writing, the
+implementation of variational inference in Edward has a
+limitation preventing its application to our model.</p>
+<h3 id="implementation-in-pyro">Implementation in Pyro</h3>
+<p>Pyro lets writing probabilistic programs in regular Python,
+almost without limitation. Python is definitely sufficient for
+implementing our probabilistic program. For inference, Pyro
+supports importance sampling and variational inference, along
+with other approaches.</p>
+<p>We first ran the inference with importance sampling, which gave
+acceptable results, partially because our prior on $C$ was close
+to the posterior. However, the running times were even longer
+than with Edward: it takes more than 10 minutes for Pyro to draw
+10,000 samples. We then turned to variational inference, only
+to discover that the model would have to be rewritten: since gradients
+are computed by the underlying <a href="http://pytorch.org">PyTorch</a> code,
+all involved computations must be expressed as non-destructive
+tensor manipulations, in a way similar to Edward implementation.
+Variational inference gave results consistent with importance
+sampling, however the learning rate had to be set low enough to
+ensure convergence. Consequently, the running time of
+variational inference was longer than of importance sampling for
+similar accuracy.</p>
+<h2 id="final-solution-a-go-program">Final Solution: A Go Program</h2>
+<blockquote>
+<p>The full Go implementation is at
+<a href="http://bitbucket.org/dtolpin/pps">http://bitbucket.org/dtolpin/pps</a>.</p>
+</blockquote>
+<p><a href="https://golang.org/">Go</a> is a (relatively) new programming
+language from Google. Recently, Go is increasingly used for
+<a href="https://www.oreilly.com/ideas/data-science-gophers">machine learning and data
+science</a>.
+We implemented the model in Go and manually coded a simple
+version of Metropolis-Hastings inference algorithm. The
+implementation came out amazingly lean and simple:</p>
+<hr>
+<h4 id="updating-beliefs">Updating beliefs</h4>
+<hr>
+<div class="highlight"><div style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">12
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">13
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">14
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">15
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">16
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">17
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">18
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">19
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">20
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">21
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-go" data-lang="go"><span style="display:flex;"><span><span style="color:#66d9ef">func</span> (<span style="color:#a6e22e">m</span> <span style="color:#f92672">*</span><span style="color:#a6e22e">Model</span>) <span style="color:#a6e22e">Update</span>(<span style="color:#a6e22e">bandwidth</span> <span style="color:#66d9ef">float64</span>, <span style="color:#a6e22e">count</span> <span style="color:#66d9ef">int</span>) {
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">for</span> <span style="color:#a6e22e">i</span> <span style="color:#f92672">:=</span> <span style="color:#ae81ff">0</span>; <span style="color:#a6e22e">i</span> <span style="color:#f92672">!=</span> len(<span style="color:#a6e22e">m</span>.<span style="color:#a6e22e">Beliefs</span>); <span style="color:#a6e22e">i</span><span style="color:#f92672">++</span> {
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">var</span> <span style="color:#a6e22e">j</span> <span style="color:#66d9ef">int</span> <span style="color:#75715e">// selects either alpha or beta</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">if</span> <span style="color:#a6e22e">i</span> &lt; <span style="color:#a6e22e">count</span><span style="color:#f92672">-</span><span style="color:#ae81ff">1</span> {
+</span></span><span style="display:flex;"><span>            <span style="color:#a6e22e">j</span> = <span style="color:#ae81ff">1</span>
+</span></span><span style="display:flex;"><span>        } <span style="color:#66d9ef">else</span> {
+</span></span><span style="display:flex;"><span>            <span style="color:#a6e22e">j</span> = <span style="color:#ae81ff">0</span>
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>        <span style="color:#a6e22e">m</span>.<span style="color:#a6e22e">Beliefs</span>[<span style="color:#a6e22e">i</span>][<span style="color:#a6e22e">j</span>]<span style="color:#f92672">++</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#75715e">// if the evidence exceeds the bandwidth, scale down</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#a6e22e">evidence</span> <span style="color:#f92672">:=</span> <span style="color:#a6e22e">m</span>.<span style="color:#a6e22e">Beliefs</span>[<span style="color:#a6e22e">i</span>][<span style="color:#ae81ff">0</span>] <span style="color:#f92672">+</span> <span style="color:#a6e22e">m</span>.<span style="color:#a6e22e">Beliefs</span>[<span style="color:#a6e22e">i</span>][<span style="color:#ae81ff">1</span>]
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">if</span> <span style="color:#a6e22e">evidence</span> &gt; <span style="color:#a6e22e">bandwidth</span> {
+</span></span><span style="display:flex;"><span>            <span style="color:#a6e22e">scale</span> <span style="color:#f92672">:=</span> <span style="color:#a6e22e">bandwidth</span> <span style="color:#f92672">/</span> <span style="color:#a6e22e">evidence</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#a6e22e">m</span>.<span style="color:#a6e22e">Beliefs</span>[<span style="color:#a6e22e">i</span>][<span style="color:#ae81ff">0</span>] <span style="color:#f92672">*=</span> <span style="color:#a6e22e">scale</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#a6e22e">m</span>.<span style="color:#a6e22e">Beliefs</span>[<span style="color:#a6e22e">i</span>][<span style="color:#ae81ff">1</span>] <span style="color:#f92672">*=</span> <span style="color:#a6e22e">scale</span>
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">if</span> <span style="color:#a6e22e">j</span> <span style="color:#f92672">==</span> <span style="color:#ae81ff">0</span> { <span style="color:#75715e">// reached the last page of the session</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">break</span>
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>}</span></span></code></pre></td></tr></table>
+</div>
+</div>
+<hr>
+<h4 id="metropolis-hastings-sampling">Metropolis-Hastings sampling</h4>
+<hr>
+<div class="highlight"><div style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">12
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-go" data-lang="go"><span style="display:flex;"><span><span style="color:#66d9ef">func</span> <span style="color:#a6e22e">MH</span>(<span style="color:#a6e22e">query</span> <span style="color:#a6e22e">Query</span>, <span style="color:#a6e22e">proposal</span> <span style="color:#a6e22e">Proposal</span>, <span style="color:#a6e22e">x</span> <span style="color:#66d9ef">float64</span>, <span style="color:#a6e22e">samples</span> <span style="color:#66d9ef">chan</span><span style="color:#f92672">&lt;-</span> <span style="color:#66d9ef">float64</span>) {
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">logp</span> <span style="color:#f92672">:=</span> <span style="color:#a6e22e">query</span>.<span style="color:#a6e22e">Observe</span>(<span style="color:#a6e22e">x</span>)
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">for</span> {
+</span></span><span style="display:flex;"><span>        <span style="color:#a6e22e">samples</span> <span style="color:#f92672">&lt;-</span> <span style="color:#a6e22e">x</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#a6e22e">x0</span>, <span style="color:#a6e22e">logp0</span> <span style="color:#f92672">:=</span> <span style="color:#a6e22e">x</span>, <span style="color:#a6e22e">logp</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#a6e22e">x</span> = <span style="color:#a6e22e">proposal</span>.<span style="color:#a6e22e">Propose</span>(<span style="color:#a6e22e">x</span>)
+</span></span><span style="display:flex;"><span>        <span style="color:#a6e22e">logp</span> = <span style="color:#a6e22e">query</span>.<span style="color:#a6e22e">Observe</span>(<span style="color:#a6e22e">x</span>)
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">if</span> <span style="color:#a6e22e">logp</span><span style="color:#f92672">-</span><span style="color:#a6e22e">logp0</span> &lt; <span style="color:#a6e22e">math</span>.<span style="color:#a6e22e">Log</span>(<span style="color:#ae81ff">1.</span><span style="color:#f92672">-</span><span style="color:#a6e22e">rand</span>.<span style="color:#a6e22e">Float64</span>()) {
+</span></span><span style="display:flex;"><span>            <span style="color:#a6e22e">x</span>, <span style="color:#a6e22e">logp</span> = <span style="color:#a6e22e">x0</span>, <span style="color:#a6e22e">logp0</span>
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>}</span></span></code></pre></td></tr></table>
+</div>
+</div>
+<hr>
+<p>The implementation produces 10,000 samples for <!-- raw HTML omitted -->1000<!-- raw HTML omitted -->
+observations (<!-- raw HTML omitted -->ten times more data<!-- raw HTML omitted --> than for the probabilistic
+programs above) in less than a second, and the simulator runs
+blazingly fast. Animation gifs in this post were produced using
+the Go program, it would take too long to generate them with
+other tools.</p>
+<h2 id="round-up">Round-up</h2>
+<p>For deployment in production, we implemented a custom solution
+in Go, which is fast and works well for our current setup.  The
+performance is much better than of any probabilistic system&rsquo;s
+implementation.  However, this impedes our
+ability to extend the probabilistic model to encounter for
+other factors and dependencies.</p>
+<p>This case study points at properties of probabilistic
+programming systems which are crucial for adoption but
+missing in many of the implementations.</p>
+<ul>
+<li>Data structures must transparently support <a href="http://www.cs.cmu.edu/~rwh/theses/okasaki.pdf">persistent
+updating and manipulation</a>
+along with high performance.</li>
+<li><a href="https://en.wikipedia.org/wiki/Automatic_differentiation">Automatic differentiation</a> algorithms which
+work well for deep learning are not necessarily good enough
+for probabilistic programming.</li>
+<li>Small programs must run with acceptable performance.</li>
+</ul>
+
+
+  
+
+  
+  <hr>
+  <footer>
+
+  
+    <section>
+    <h4>Share</h4>
+    <nav class="nav sharing-icons">
+      <a class="nav-item" href="https://www.facebook.com/sharer/sharer.php?u=http%3a%2f%2fdtolpin.github.io%2f2018%2f08%2fa-small-program-can-be-a-big-challenge%2f" title="Share on Facebook"><span class="fab fa-facebook-f fa-2x" aria-hidden="true"></span></a>
+      <a class="nav-item" href="https://www.linkedin.com/shareArticle?mini=true&amp;url=http%3a%2f%2fdtolpin.github.io%2f2018%2f08%2fa-small-program-can-be-a-big-challenge%2f" title="Share on LinkedIn"><span class="fab fa-linkedin-in fa-2x" aria-hidden="true"></span></a>
+      <a class="nav-item" href="https://twitter.com/intent/tweet?url=http%3a%2f%2fdtolpin.github.io%2f2018%2f08%2fa-small-program-can-be-a-big-challenge%2f&amp;text=A%20Small%20Program%20Can%20Be%20a%20Big%20Challenge" title="Tweet this"><span class="fab fa-twitter fa-2x"></span></a>
+    </nav>
+  </section>
+
+  
+
+  
+  </footer>
+  
+
+</article> 
+
+
+
+        </div> <!-- /.blog-main -->
+
+        <aside class="col-sm-3 ml-auto blog-sidebar">
+  
+
+  
+        <section class="sidebar-module">
+    <h4>Recent Posts</h4>
+    <ol class="list-unstyled">
+
+
+<li><a href="/2022/09/how-data-scientists-fail/">How Data Scientists Fail</a></li>
+
+<li><a href="/2021/08/double-speed-replay/">Double Speed Replay</a></li>
+
+<li><a href="/2021/08/how-to-train-your-program/">How To Train Your Program</a></li>
+
+<li><a href="/2021/08/stochastic-conditioning/">Stochastic conditioning</a></li>
+
+<li><a href="/2020/08/bda-model-too-tough-for-stan/">BDA Model Too Tough for Stan</a></li>
+
+    </ol>
+  </section>
+
+  
+
+  
+  <section class="sidebar-module">
+    <h4>Links</h4>
+    <ol class="list-unstyled">
+      
+      <li><a href="https://infergo.org/">Infergo</a></li>
+      
+      <li><a href="https://offtopia.net/wp/">Old blog</a></li>
+      
+    </ol>
+  </section>
+  
+</aside>
+
+
+      </div> <!-- /.row -->
+    </div> <!-- /.container -->
+    
+
+    
+    <footer class="blog-footer">
+      <p dir="auto">
+      
+      Blog template created by <a href="https://twitter.com/mdo">@mdo</a>, ported to Hugo by <a href='https://twitter.com/mralanorth'>@mralanorth</a>.
+      
+      </p>
+      <p>
+      <a href="#">Back to top</a>
+      </p>
+    </footer>
+    
+
+    
+    <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+    <script type="text/x-mathjax-config">MathJax.Hub.Config({ tex2jax: { inlineMath: [['$','$'], ['\\(','\\)']] } });</script>
+
+  </body>
+</html>

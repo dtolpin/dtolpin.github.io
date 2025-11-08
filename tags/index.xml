@@ -4,7 +4,8 @@
     <title>Tags on Offtopia — nothing personal</title>
     <link>http://dtolpin.github.io/tags/</link>
     <description>Recent content in Tags on Offtopia — nothing personal</description>
-    <generator>Hugo -- gohugo.io</generator>
-    <language>en-us</language><atom:link href="http://dtolpin.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
+    <generator>Hugo</generator>
+    <language>en-us</language>
+    <atom:link href="http://dtolpin.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
   </channel>
 </rss>

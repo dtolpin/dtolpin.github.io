@@ -1,0 +1,426 @@
+<!DOCTYPE html>
+<html lang="en" >
+
+  <head>
+    <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"><meta property="og:url" content="http://dtolpin.github.io/2021/08/how-to-train-your-program/">
+  <meta property="og:site_name" content="Offtopia — nothing personal">
+  <meta property="og:title" content="How To Train Your Program">
+  <meta property="og:description" content="arXiv | code
+The ultimate Bayesian approach to learning from data is embodied by hierarchical models. In a hierarchical model, each observation or a group of observations $y_i$ corresponding to a single item in the data set is conditioned on a parameter $\theta_i$, and all parameters are conditioned on a hyperparameter $\tau$: \begin{equation} \begin{aligned} \tau &amp; \sim H \\ \theta_i &amp; \sim D(\tau) \\ y_i &amp; \sim F(\theta_i) \end{aligned} \label{eqn:hier} \end{equation}">
+  <meta property="og:locale" content="en_us">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="posts">
+    <meta property="article:published_time" content="2021-08-10T12:00:00+03:00">
+    <meta property="article:modified_time" content="2021-08-10T12:00:00+03:00">
+
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="How To Train Your Program">
+  <meta name="twitter:description" content="arXiv | code
+The ultimate Bayesian approach to learning from data is embodied by hierarchical models. In a hierarchical model, each observation or a group of observations $y_i$ corresponding to a single item in the data set is conditioned on a parameter $\theta_i$, and all parameters are conditioned on a hyperparameter $\tau$: \begin{equation} \begin{aligned} \tau &amp; \sim H \\ \theta_i &amp; \sim D(\tau) \\ y_i &amp; \sim F(\theta_i) \end{aligned} \label{eqn:hier} \end{equation}">
+<meta name="generator" content="Hugo 0.152.2">
+
+
+    
+<script type="application/ld+json">
+{
+  "@context": "http://schema.org",
+  "@type": "BlogPosting",
+  "headline": "How To Train Your Program",
+  "url": "http://dtolpin.github.io/2021/08/how-to-train-your-program/",
+  "wordCount": "1435",
+  "datePublished": "2021-08-10T12:00:00+03:00",
+  "dateModified": "2021-08-10T12:00:00+03:00",
+  "author": {
+    "@type": "Person",
+    "name": "David Tolpin"
+  }
+}
+</script>
+
+
+
+    <link rel="canonical" href="http://dtolpin.github.io/2021/08/how-to-train-your-program/">
+
+    <title>How To Train Your Program | Offtopia — nothing personal</title>
+
+    
+    <!-- combined, minified CSS -->
+    
+    <link href="http://dtolpin.github.io/css/style.c6ba80bc50669557645abe05f86b73cc5af84408ed20f1551a267bc19ece8228.css" rel="stylesheet" integrity="sha256-xrqAvFBmlVdkWr4F&#43;GtzzFr4RAjtIPFVGiZ7wZ7Ogig=" crossorigin="anonymous">
+    
+    
+    <link href="http://dtolpin.github.io/css/substyle.f6bbec6fb714a00539d34a74ab7edb3a54048cb7745882eea95ba078edf0803c.css" rel="stylesheet" integrity="sha256-9rvsb7cUoAU500p0q37bOlQEjLd0WILuqVugeO3wgDw=" crossorigin="anonymous">
+
+    <!-- minified Font Awesome for SVG icons -->
+    
+    <script defer src="http://dtolpin.github.io/js/fontawesome.min.f5072c55a0721857184db93a50561d7dc13975b4de2e19db7f81eb5f3fa57270.js" integrity="sha256-9QcsVaByGFcYTbk6UFYdfcE5dbTeLhnbf4HrXz&#43;lcnA=" crossorigin="anonymous"></script>
+
+    <!-- RSS 2.0 feed -->
+    
+
+    
+
+  </head>
+
+  <body>
+
+    
+    <div class="blog-masthead">
+      <div class="container">
+        <nav class="nav blog-nav">
+          <a class="nav-link " href="http://dtolpin.github.io/">Home</a>
+          
+          <a class="nav-link" href="/about/" title="">About</a>
+          
+          
+          <a class="nav-link" href="/academic/" title="">Academic</a>
+          
+        </nav>
+      </div>
+    </div>
+    
+
+    
+    
+    <header class="blog-header">
+      <div class="container">
+        <h1 class="blog-title" dir="auto"><a href="http://dtolpin.github.io/" rel="home">Offtopia — nothing personal</a></h1>
+        
+      </div>
+    </header>
+    
+    
+
+    
+    <div class="container">
+      <div class="row">
+        <div class="col-sm-8 blog-main">
+
+          
+
+
+<article class="blog-post">
+  <header>
+    <h2 class="blog-post-title" dir="auto"><a href="http://dtolpin.github.io/2021/08/how-to-train-your-program/">How To Train Your Program</a></h2>
+    
+    <h3 class="blog-post-subtitle">A probabilistic programming pattern for Bayesian learning from data</h3>
+    
+    <p class="blog-post-meta">
+<time datetime="2021-08-10T12:00:00+03:00">Tue Aug 10, 2021</time>
+</p>
+  </header>
+  <p><a href="https://arxiv.org/abs/2105.03650">arXiv</a> | <a href="https://bitbucket.org/dtolpin/h2typ-studies">code</a></p>
+<p>The ultimate Bayesian approach to learning from data is embodied by
+hierarchical models. In a hierarchical model,
+each observation or a group of observations $y_i$ corresponding
+to a single item in the data set is conditioned on a parameter
+$\theta_i$, and all parameters are conditioned on a
+hyperparameter $\tau$:
+\begin{equation}
+\begin{aligned}
+\tau &amp; \sim H \\
+\theta_i &amp; \sim D(\tau) \\
+y_i &amp; \sim F(\theta_i)
+\end{aligned}
+\label{eqn:hier}
+\end{equation}</p>
+<p>A hierarchical model can be thought of as a way of inferring, or
+‘learning’, the prior of each $\theta_i$ from all observations
+in the data set. Consider the following example problem:
+multiple boxes are randomly filled by $K$ marbles from a bag
+containing a mixture of blue and white marbles. We are presented
+by a few draws with replacement from each of the boxes, $y_{ij}$
+being the $j$th draw from the $i$th box; our goal is to infer
+the number of blue marbles $\theta_i$ in each box.  Intuitively,
+since the boxes are filled from the same bag, the posterior
+distribution of $\theta_i$ should account both for draws from
+the $i$th box and, indirectly, for draws from all other boxes.
+This is formalized by the following hierarchical model:
+\begin{align}
+\begin{aligned}
+\tau &amp; \sim \mathrm{Beta}(1, 1) \\
+\theta_i &amp; \sim \mathrm{Binomial}(K, \tau) \\
+y_{ij} &amp; \sim \mathrm{Bernoulli}\left(\frac {\theta_i} K\right)
+\end{aligned}
+\label{eqn:marbles}
+\end{align}</p>
+<p>The above model learns from the data in the sense that
+inference for each box is influenced by draws from all boxes.
+However, learning from <em>training data</em> to improve
+inference on <em>future data</em> with a  hierarchical model is
+computationally inefficient &mdash; if a new box is presented, one
+has to add observations of the new box to the previously
+available data and re-run inference on the extended data set.
+Inference performance can be improved by employing data
+subsampling, but the whole
+training data set still needs to be kept and made accessible to the
+inference algorithm.  A hierarchical model cannot ‘compress’, or
+summarize, training data for efficient inference on future
+observations.  Is there a way to learn from data in probabilistic
+programs which is both Bayesian in nature and computationally
+efficient?</p>
+<h2 id="problem-learning-from-data">Problem: Learning from Data</h2>
+<p>The challenge we tackle here is re-using inference outcomes on
+the training data set for inference on new data. Formally,
+population $\mathcal{Y}$ is a set of sets $y_i \in Y$ of
+observations $y_{ij} \in y_i$.  Members of each $y_i$ are
+assumed to be drawn from a known distribution $F$ with
+unobserved parameter $\theta_i$, $y_{ij} \sim F(\theta_i)$.
+$\theta_i$ are assumed to be drawn from a common distribution
+$H$. Our goal is to devise a scheme that, given a subset $Y
+\subset \mathcal{Y}$, the <em>training set</em>, infers the
+posterior distribution of $\theta_k|Y, y_k$ for any $y_k \in
+\mathcal{Y}$ in a shorter amortized time than running inference
+on a hierarchical model $Y \cup {y_k}$.  By amortized time we
+mean here average time per $y_k,,k \in 1:K$ as $K \to \infty$.</p>
+<p>In other words, we look for a scheme that works in two stages.
+At the first stage, inference is performed on the training set
+$Y$ only. At the second stage, the inference outcome of the
+first stage is used, together with $y_k$, to infer $\theta_k|Y,
+y_k$. We anticipate a scheme that ‘compresses’ the training set
+at the first stage, resulting in a shorter running time of the
+second stage. Such scheme bears similarity to the conventional
+machine learning paradigm: an expensive computation on the
+training data results in shorter running times on new data.</p>
+<h2 id="main-idea-stump-and-fungus">Main Idea: Stump and Fungus</h2>
+<p>In quest of devising such a scheme, we make two
+observations which eventually help us arrive at a satisfactory
+solution:</p>
+<ul>
+<li>In Bayesian modelling, information about data
+is usually conveyed through conditioning of the
+model on various aspects of the data.</li>
+<li>In a hierarchical model, influence of the $i$th group of
+observations on the hyperparameters $\tau$ and, consequently,
+on other groups, passes exclusively through the group parameters
+$\theta_i$.</li>
+</ul>
+<p><img src="/images/h2typ/tree-and-fungi.svg" alt="stump and fungus"></p>
+<p>If, instead of conditioning on training data $y_i$, we could
+condition on parameters $\theta_i$ corresponding to the training
+data, then we could perform inference on new data item $y_k$ at
+a lower time and space complexity.  Continuing the well known
+analogy  between a hierarchical model and a tree, with the
+hyperparameter $\tau$ at the root and observations ${y_i}_j$ in
+the leaves, we can liken a model which receives all $\theta_i$
+of the training data and new data item $y_k$ as a <em>stump</em> (the
+hierarchical model with the trunk cut off just after the
+hyperparameters) and a <em>fungus</em> growing on the stump &mdash;
+the new data item.  The problem is, of course, that we infer
+<strong>distributions</strong>, rather than fixed values, of $\theta_i$,
+and the model must be, somewhat unconventionally, conditioned on
+the distributions of $\theta_i$.</p>
+<p>However, a recently introduced notion of <a href="http://proceedings.mlr.press/v139/tolpin21a.html">stochastic
+conditioning</a>
+makes conditioning on distributions of $\theta_i$ possible, both
+theoretically and in the practical case when the posteriors of
+$\theta_i$ are approximated using Monte Carlo samples. Moreover,
+conditioning the model both <em>stochastically</em> on the posterior
+distributions of $\theta_i$ on training data and
+<em>deterministically</em> on new data $y_k$ yields the same posterior
+distribution of $\theta_k$ as inference on the full hierarchical
+model. Based on this, we propose the ‘stump-and-fungus’ pattern
+for learning from data in probabilistic programs:</p>
+<ul>
+<li>Training is accomplished through inference on a
+hierarchical model, in the usual way.</li>
+<li>Training outcomes are summarized as a collection of
+samples $\tilde \theta$, representing the
+mixture distribution of $\theta_i$ of all groups.</li>
+<li>For inference on new data item $y$, a stump-and-fungus
+model is employed:
+\begin{equation}
+\begin{aligned}
+\tilde \theta &amp; \sim \mathrm{Hierarchical}(Y) \\
+&mdash;&amp;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash; \\
+\tau &amp; \sim  H \\
+\tilde \theta, \theta &amp;|\tau \sim D(\tau) \\
+y&amp;|\theta \sim F(\theta)
+\end{aligned}
+\end{equation}</li>
+</ul>
+<p>Although two models  &mdash; hierarchical and stump-and-fungus &mdash;
+are involved in the pattern,  the models are in fact two roles
+fulfilled by the same generative model, combining stochastic
+conditioning on training data and deterministic conditioning on
+new data (consisting potentially of multiple data items).  This
+preserves a common practice in machine learning in which the same
+model is used for both training and inference.</p>
+<h2 id="case-study-tumor-incidence-in-rats">Case Study: Tumor Incidence in Rats</h2>
+<p>In this case study,  discussed in
+Chapter 5 of <a href="http://www.stat.columbia.edu/~gelman/book/">Bayesian Data Analysis</a>, data on tumor incidence in rats in $N=70$
+laboratory experiments is used to infer tumor incidence based on
+outcomes of yet another experiment. A different number of rats
+$n_i$ was involved in each experiment, and the number of tumor
+cases $y_i$ was reported.
+The posteriors of independent models for all experiments are
+shown in Figure 1.</p>
+<p><img src="/images/h2typ/separate.svg" alt="separate"></p>
+<p>Figure 1. Posteriors of separate models for all experiments</p>
+<p>A schoolbook solution for the problem
+is to perform inference on a hierarchical model:
+\begin{equation}
+\begin{aligned}
+\alpha, \beta &amp; \sim \mathrm{Uniform}(0, \infty) \\
+p_i&amp;|\alpha, \beta \sim \mathrm{Beta}(\alpha, \beta)
+\\
+y_i&amp;|p_i \sim Binomial(n_i, p_i)
+\end{aligned}
+\end{equation}
+Inference on this model can be performed
+efficiently thanks to summarization of $n$ observations from
+$\mathrm{Bernoulli}(p)$ as a single observation from
+$\mathrm{Binomial}(n, p)$. In general however, the use of a
+hierarchical model would require carrying all observations of
+all previous experiments for learned inference on findings of a
+new experiment.</p>
+<p>The stump-and-fungus pattern is straightforwardly applicable to
+the problem:
+\begin{equation}
+\begin{aligned}
+p_{-k} &amp; \sim  \mathrm{Hierarchical}(n_{-k}, y_{-k}) \\
+&mdash;&amp;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash; \\
+\alpha, \beta &amp; \sim \mathrm{Uniform}(0, \infty) \\
+p&amp;|\alpha, \beta \sim \mathrm{Beta}(\alpha, \beta) \\
+y_k&amp;|p_k \sim \mathrm{Binomial}(n_k, p_k)
+\end{aligned}
+\label{eqn:rats-stump-and-fungus}
+\end{equation}
+$p_{-k}$ are stochastically observable from the posterior of
+the hierarchical model conditioned on all but
+the $k$th experiment. Figure 2 shows the posterior distributions
+for $p$ inferred on the hierarchical model and through $N+1$
+applications of stump-and-fungus~(similar to leave-one-out
+cross-validation).  The <a href="https://infergo.org/">Infergo</a> source
+code of the model is provided in the appendix.  The inference
+was performed with HMC on the hierarchical model and <em>stochastic
+gradient</em> HMC on the stump-and-fungus model. 1000 samples were
+used to visualize the posterior. One can see that the posteriors
+obtained via either method appear to be the same, except for
+small discrepancies apparently caused by finite sample size
+approximation.  The data and code for the case study are
+available on
+<a href="https://bitbucket.org/dtolpin/h2typ-studies%7D">BitBucket</a>.</p>
+<table>
+  <thead>
+      <tr>
+          <th>Hierarchical model</th>
+          <th>Stump-and-Fungus model</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td><img src="/images/h2typ/tree.svg" alt="tree"></td>
+          <td><img src="/images/h2typ/fungi.svg" alt="fungi"></td>
+      </tr>
+  </tbody>
+</table>
+<p>Figure 2: Hierarchical vs Stump-and-Fungus</p>
+<h2 id="discussion">Discussion</h2>
+<p>We presented a probabilistic programming pattern for Bayesian
+learning from data. The importance of learning from data is well
+appreciated in probabilistic programming. Along with empirical
+Bayes, applicable to probabilistic programming as well as to
+Bayesian generative models in general, probabilistic-programming
+specific approaches were proposed.  Our approach to learning
+from data in probabilistic programs does not require any
+particular implementation of probabilistic programming to be
+used, nor introspection into the structure of probabilistic
+programs or inference algorithms.  Instead, the approach uses
+inference in ubiquitously adopted hierarchical models for
+training, and conditioning on observations for incorporation of
+training outcomes in inference.</p>
+
+
+  
+
+  
+  <hr>
+  <footer>
+
+  
+    <section>
+    <h4>Share</h4>
+    <nav class="nav sharing-icons">
+      <a class="nav-item" href="https://www.facebook.com/sharer/sharer.php?u=http%3a%2f%2fdtolpin.github.io%2f2021%2f08%2fhow-to-train-your-program%2f" title="Share on Facebook"><span class="fab fa-facebook-f fa-2x" aria-hidden="true"></span></a>
+      <a class="nav-item" href="https://www.linkedin.com/shareArticle?mini=true&amp;url=http%3a%2f%2fdtolpin.github.io%2f2021%2f08%2fhow-to-train-your-program%2f" title="Share on LinkedIn"><span class="fab fa-linkedin-in fa-2x" aria-hidden="true"></span></a>
+      <a class="nav-item" href="https://twitter.com/intent/tweet?url=http%3a%2f%2fdtolpin.github.io%2f2021%2f08%2fhow-to-train-your-program%2f&amp;text=How%20To%20Train%20Your%20Program" title="Tweet this"><span class="fab fa-twitter fa-2x"></span></a>
+    </nav>
+  </section>
+
+  
+
+  
+  </footer>
+  
+
+</article> 
+
+
+
+        </div> <!-- /.blog-main -->
+
+        <aside class="col-sm-3 ml-auto blog-sidebar">
+  
+
+  
+        <section class="sidebar-module">
+    <h4>Recent Posts</h4>
+    <ol class="list-unstyled">
+
+
+<li><a href="/2022/09/how-data-scientists-fail/">How Data Scientists Fail</a></li>
+
+<li><a href="/2021/08/double-speed-replay/">Double Speed Replay</a></li>
+
+<li><a href="/2021/08/how-to-train-your-program/">How To Train Your Program</a></li>
+
+<li><a href="/2021/08/stochastic-conditioning/">Stochastic conditioning</a></li>
+
+<li><a href="/2020/08/bda-model-too-tough-for-stan/">BDA Model Too Tough for Stan</a></li>
+
+    </ol>
+  </section>
+
+  
+
+  
+  <section class="sidebar-module">
+    <h4>Links</h4>
+    <ol class="list-unstyled">
+      
+      <li><a href="https://infergo.org/">Infergo</a></li>
+      
+      <li><a href="https://offtopia.net/wp/">Old blog</a></li>
+      
+    </ol>
+  </section>
+  
+</aside>
+
+
+      </div> <!-- /.row -->
+    </div> <!-- /.container -->
+    
+
+    
+    <footer class="blog-footer">
+      <p dir="auto">
+      
+      Blog template created by <a href="https://twitter.com/mdo">@mdo</a>, ported to Hugo by <a href='https://twitter.com/mralanorth'>@mralanorth</a>.
+      
+      </p>
+      <p>
+      <a href="#">Back to top</a>
+      </p>
+    </footer>
+    
+
+    
+    <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+    <script type="text/x-mathjax-config">MathJax.Hub.Config({ tex2jax: { inlineMath: [['$','$'], ['\\(','\\)']] } });</script>
+
+  </body>
+</html>

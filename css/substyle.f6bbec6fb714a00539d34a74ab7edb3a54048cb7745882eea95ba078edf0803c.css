@@ -1,0 +1,75 @@
+.blog-masthead {
+    background-color: #eee;
+}
+
+.nav-link {
+    color: #666;
+}
+.nav-link:focus,
+.nav-link:hover {
+    color: #333;
+}
+.nav-link.active {
+    color: #333;
+}
+
+/* Make sure the image size is reasonable. */
+.blog-post img {
+  max-width: 100%;
+}
+
+
+/* blockquote should stand out */
+.blog-post-title {
+    font-family: sans-serif;
+    text-transform: uppercase;
+    font-size: 240%;
+}
+
+.blog-post .blog-post-title {
+    text-transform: none;
+    font-family: serif;
+    font-size: 200%; }
+
+.blog-post-subtitle {
+    text-transform: none;
+	color: black;
+    font-family: sans-serif;
+}
+
+.blog-post .blog-post-subtitle {
+    text-transform: none;
+	color: black;
+    font-family: serif;
+}
+
+.blog-post {
+    font-family: serif;
+}
+
+.blog-post blockquote  {
+    padding-left: 5%;
+    border-left: 2pt solid #ccc;
+    font-size: 96%;
+    color: #333;
+}
+
+.blog-post h2 {
+    font-variant: small-caps;
+    color: #258;
+}
+
+.blog-post h3 {
+    color: #258;
+}
+
+.blog-post table {
+	margin-left: auto;
+	margin-right: auto;
+	margin-bottom: 1em;
+}
+
+.blog-post td, .blog-post th {
+	padding: 0pt 6pt
+}
+
