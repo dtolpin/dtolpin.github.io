@@ -6,8 +6,15 @@
     <description>Recent content on Offtopia — nothing personal</description>
     <generator>Hugo</generator>
     <language>en-us</language>
-    <lastBuildDate>Sun, 04 Sep 2022 16:09:33 +0300</lastBuildDate>
+    <lastBuildDate>Mon, 06 Jul 2026 15:32:37 +0300</lastBuildDate>
     <atom:link href="https://dtolpin.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Claude Slop</title>
+      <link>https://dtolpin.github.io/2026/07/claude-slop/</link>
+      <pubDate>Mon, 06 Jul 2026 15:32:37 +0300</pubDate>
+      <guid>https://dtolpin.github.io/2026/07/claude-slop/</guid>
+      <description>&lt;p&gt;A coding agent is a dumb program that does what an LLM tells it to do; a&#xA;mechanical executor.  The LLM that drives the agent was trained on 1)&#xA;linguistic correctness as an autoregressive text generator 2) human feedback.&#xA;For human feedback, it was not trained to do &amp;ldquo;the right&#xA;thing&amp;rdquo;, there is no way to train like that. It was trained for confirmation&#xA;bias. That is, whatever one asks the agent to do, LLM instructs claude to do&#xA;that in such a way that he thinks the task was accomplished successfully. That&#xA;means it is trained to &amp;ldquo;summarize&amp;rdquo; the work done in a way that you do not feel&#xA;the urge to look at the code or throroughly check the results, relying on&#xA;the agent&amp;rsquo;s  diagnostic output instead.  My personal experience is whenever&#xA;opus/gpt/another LLM are allowed to &amp;ldquo;check itself&amp;rdquo; it always produces slop.&lt;/p&gt;</description>
+    </item>
     <item>
       <title>How Data Scientists Fail</title>
       <link>https://dtolpin.github.io/2022/09/how-data-scientists-fail/</link>

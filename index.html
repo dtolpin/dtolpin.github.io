@@ -25,7 +25,7 @@
     "@type": "Person",
     "name": "David Tolpin"
   },
-  "dateModified": "2026-07-06T12:32:37+03:00",
+  "dateModified": "2026-07-06T15:32:37+03:00",
   "keywords": ""
 }
 </script>
@@ -91,6 +91,30 @@
 
           
 
+
+
+
+
+
+
+<article class="blog-post">
+  <header>
+    <h2 class="blog-post-title" dir="auto"><a href="https://dtolpin.github.io/2026/07/claude-slop/">Claude Slop</a></h2>
+    <p class="blog-post-meta"><time datetime="2026-07-06T15:32:37+03:00">Mon Jul 06, 2026</time> by David Tolpin</p>
+  </header>
+  <p>A coding agent is a dumb program that does what an LLM tells it to do; a
+mechanical executor.  The LLM that drives the agent was trained on 1)
+linguistic correctness as an autoregressive text generator 2) human feedback.
+For human feedback, it was not trained to do &ldquo;the right
+thing&rdquo;, there is no way to train like that. It was trained for confirmation
+bias. That is, whatever one asks the agent to do, LLM instructs claude to do
+that in such a way that he thinks the task was accomplished successfully. That
+means it is trained to &ldquo;summarize&rdquo; the work done in a way that you do not feel
+the urge to look at the code or throroughly check the results, relying on
+the agent&rsquo;s  diagnostic output instead.  My personal experience is whenever
+opus/gpt/another LLM are allowed to &ldquo;check itself&rdquo; it always produces slop.</p>
+  <a href='https://dtolpin.github.io/2026/07/claude-slop/'>Read more →</a>
+</article> 
 
 
 
@@ -316,28 +340,6 @@ get bored and switch to other content or activity.</p>
 
 
 
-
-<article class="blog-post">
-  <header>
-    <h2 class="blog-post-title" dir="auto"><a href="https://dtolpin.github.io/2018/04/how-to-hug-a-data-scientist/">How to Hug a Data Scientist</a></h2>
-    <p class="blog-post-meta"><time datetime="2018-04-09T14:19:13+03:00">Mon Apr 09, 2018</time> by David Tolpin</p>
-  </header>
-  <p>Sometimes, a data scientist is the first engineer in a software
-project. More often though a data scientist joins the team when
-there is working code, ready for deploying or even deployed.
-Here is how the latter case rolls out:</p>
-<blockquote>
-<p>We write a piece of software. Thanks to continous delivery,
-we fix our bugs quickly and release new improved versions on
-time. Our code is fully tested, easy to change, and pieces
-fit each other smoothly.</p>
-  <a href='https://dtolpin.github.io/2018/04/how-to-hug-a-data-scientist/'>Read more →</a>
-</article> 
-
-
-
-
-
 <nav class="blog-pagination">
   
   
@@ -362,6 +364,8 @@ fit each other smoothly.</p>
     <ol class="list-unstyled">
 
 
+<li><a href="/2026/07/claude-slop/">Claude Slop</a></li>
+
 <li><a href="/2022/09/how-data-scientists-fail/">How Data Scientists Fail</a></li>
 
 <li><a href="/2021/08/double-speed-replay/">Double Speed Replay</a></li>
@@ -369,8 +373,6 @@ fit each other smoothly.</p>
 <li><a href="/2021/08/how-to-train-your-program/">How To Train Your Program</a></li>
 
 <li><a href="/2021/08/stochastic-conditioning/">Stochastic conditioning</a></li>
-
-<li><a href="/2020/08/bda-model-too-tough-for-stan/">BDA Model Too Tough for Stan</a></li>
 
     </ol>
   </section>
