@@ -2,13 +2,16 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
-    <loc>https://dtolpin.github.io/2026/07/claude-slop/</loc>
-    <lastmod>2026-07-06T15:32:37+03:00</lastmod>
+    <loc>https://dtolpin.github.io/2026/07/better-model-degrades-performance/</loc>
+    <lastmod>2026-07-10T17:49:00+03:00</lastmod>
   </url><url>
     <loc>https://dtolpin.github.io/</loc>
-    <lastmod>2026-07-06T15:32:37+03:00</lastmod>
+    <lastmod>2026-07-10T17:49:00+03:00</lastmod>
   </url><url>
     <loc>https://dtolpin.github.io/posts/</loc>
+    <lastmod>2026-07-10T17:49:00+03:00</lastmod>
+  </url><url>
+    <loc>https://dtolpin.github.io/2026/07/claude-slop/</loc>
     <lastmod>2026-07-06T15:32:37+03:00</lastmod>
   </url><url>
     <loc>https://dtolpin.github.io/2022/09/how-data-scientists-fail/</loc>

@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="en" >
+
+  <head>
+    <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"><meta property="og:url" content="https://dtolpin.github.io/2026/07/better-model-degrades-performance/">
+  <meta property="og:site_name" content="Offtopia — nothing personal">
+  <meta property="og:title" content="Better Model Degrades Performance">
+  <meta property="og:description" content="Back in the good old days of Yoom I had trained a neural density estimator on human body poses, and Michal Heker, Sefy Kagarlitsky and yours truly uploaded an arxiv paper about this. One trick described in the paper is that for proper density estimation in 6D rotation space, one needs to “de-Gram-Schmidt” the training data, similarly to the dequantization trick, but for points on a lower-dimensional manifold. However, the adoption of this trick was not smooth.">
+  <meta property="og:locale" content="en_us">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="posts">
+    <meta property="article:published_time" content="2026-07-10T17:49:00+03:00">
+    <meta property="article:modified_time" content="2026-07-10T17:49:00+03:00">
+
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Better Model Degrades Performance">
+  <meta name="twitter:description" content="Back in the good old days of Yoom I had trained a neural density estimator on human body poses, and Michal Heker, Sefy Kagarlitsky and yours truly uploaded an arxiv paper about this. One trick described in the paper is that for proper density estimation in 6D rotation space, one needs to “de-Gram-Schmidt” the training data, similarly to the dequantization trick, but for points on a lower-dimensional manifold. However, the adoption of this trick was not smooth.">
+<meta name="generator" content="Hugo 0.152.2">
+
+
+    
+<script type="application/ld+json">
+{
+  "@context": "http://schema.org",
+  "@type": "BlogPosting",
+  "headline": "Better Model Degrades Performance",
+  "url": "https://dtolpin.github.io/2026/07/better-model-degrades-performance/",
+  "wordCount": "738",
+  "datePublished": "2026-07-10T17:49:00+03:00",
+  "dateModified": "2026-07-10T17:49:00+03:00",
+  "author": {
+    "@type": "Person",
+    "name": "David Tolpin"
+  }
+}
+</script>
+
+
+
+    <link rel="canonical" href="https://dtolpin.github.io/2026/07/better-model-degrades-performance/">
+
+    <title>Better Model Degrades Performance | Offtopia — nothing personal</title>
+
+    
+    <!-- combined, minified CSS -->
+    
+    <link href="https://dtolpin.github.io/css/style.c6ba80bc50669557645abe05f86b73cc5af84408ed20f1551a267bc19ece8228.css" rel="stylesheet" integrity="sha256-xrqAvFBmlVdkWr4F&#43;GtzzFr4RAjtIPFVGiZ7wZ7Ogig=" crossorigin="anonymous">
+    
+    
+    <link href="https://dtolpin.github.io/css/substyle.f6bbec6fb714a00539d34a74ab7edb3a54048cb7745882eea95ba078edf0803c.css" rel="stylesheet" integrity="sha256-9rvsb7cUoAU500p0q37bOlQEjLd0WILuqVugeO3wgDw=" crossorigin="anonymous">
+
+    <!-- minified Font Awesome for SVG icons -->
+    
+    <script defer src="https://dtolpin.github.io/js/fontawesome.min.f5072c55a0721857184db93a50561d7dc13975b4de2e19db7f81eb5f3fa57270.js" integrity="sha256-9QcsVaByGFcYTbk6UFYdfcE5dbTeLhnbf4HrXz&#43;lcnA=" crossorigin="anonymous"></script>
+
+    <!-- RSS 2.0 feed -->
+    
+
+    
+
+  </head>
+
+  <body>
+
+    
+    <div class="blog-masthead">
+      <div class="container">
+        <nav class="nav blog-nav">
+          <a class="nav-link " href="https://dtolpin.github.io/">Home</a>
+          
+          <a class="nav-link" href="/about/" title="">About</a>
+          
+          
+          <a class="nav-link" href="/academic/" title="">Academic</a>
+          
+        </nav>
+      </div>
+    </div>
+    
+
+    
+    
+    <header class="blog-header">
+      <div class="container">
+        <h1 class="blog-title" dir="auto"><a href="https://dtolpin.github.io/" rel="home">Offtopia — nothing personal</a></h1>
+        
+      </div>
+    </header>
+    
+    
+
+    
+    <div class="container">
+      <div class="row">
+        <div class="col-sm-8 blog-main">
+
+          
+
+
+<article class="blog-post">
+  <header>
+    <h2 class="blog-post-title" dir="auto"><a href="https://dtolpin.github.io/2026/07/better-model-degrades-performance/">Better Model Degrades Performance</a></h2>
+    
+    <h3 class="blog-post-subtitle">and pushes research forward</h3>
+    
+    <p class="blog-post-meta">
+<time datetime="2026-07-10T17:49:00+03:00">Fri Jul 10, 2026</time>
+</p>
+  </header>
+  <p>Back in the good old days of
+<a href="https://mc.linkedin.com/company/yoomiverse">Yoom</a> I had trained a
+neural density estimator on human body poses, and <a href="https://www.linkedin.com/in/michal-heker-739767102/">Michal
+Heker</a>,
+<a href="https://www.linkedin.com/in/sefykagarlitsky/">Sefy Kagarlitsky</a>
+and yours truly uploaded an <a href="https://arxiv.org/abs/2507.12138">arxiv
+paper</a> about this. One trick
+described in the paper is that for proper density estimation in
+6D rotation space, one needs to &ldquo;de-Gram-Schmidt&rdquo; the training
+data, similarly to the dequantization trick, but for points on a
+lower-dimensional manifold. However, the adoption of this trick was not smooth.</p>
+<p>First version of the model was trained <em>without
+de-Gram-Schmidtization,</em> and had &ldquo;holes&rdquo; in it due to
+dimensionality mismatch between the latent and the ambient space
+&mdash; certain poses were assigned an anomalously high loss and a
+random gradient; but with some guards and workarounds our
+engineers got it to work in the pipeline, and the model helped
+motion-capture optimization. That was a promising start, but
+both in theory and in practice a neural estimator that naïvely
+tried to learn an invertible map between data concentrated on a
+63-dimensional manifold and a 126-dimensional Euclidean latent
+space invited trouble.</p>
+<p>Adding pose-preserving noise to 6D vectors seemed to be the
+right solution. The effective dimensionality of both the ambient
+and the latent space matched now, the model was easier to train,
+and the gradients became well-behaved everywhere. I trained a
+few model variants with different  noise levels, evaluated on my own
+simulations confirming that the holes went away, and asked
+the engineers to test on real motion capture. Rather
+confusingly, the evaluation was disappointing: no improvement
+compared to the previous model overall, and degradation here and
+there, in difficult poses.</p>
+<p>I had a vague feeling that what was wrong was not the model itself
+but how it was used; the best way to confirm my feeling would
+have been to see where the gradient drives the pose in failure
+cases &mdash; but the engineers had their own ways to evaluate the
+pipeline and the model, and I didn&rsquo;t get the feedback I needed
+and asked for. This happens to data scientists, unfortunately
+much more often than is justified. Both I and the developers
+were left frustrated, each blaming the other side but lacking
+strong enough arguments.</p>
+<p>It was not until I started working on a different, but related,
+regularization signal to the pipeline  that I realized that for
+optimization, a global pose prior assigning a probabiity density
+to every possible pose is the wrong signal. The old
+model&rsquo;s gradients in rare poses were <em>just noise</em>, and with
+stochastic optimization the noise cancelled itself &mdash; the prior
+didn&rsquo;t affect optimization in low-density regions. With the new
+model, the gradients got <em>better everywhere</em>, and drove
+optimization away from the right poses given the data to more
+probable poses of the data distribution on which the model
+was trained.</p>
+<p>But one doesn&rsquo;t want to optimize towards a more probable pose
+overall, one wants to optimize towards a more probable pose
+given what is observed. In other words, the right signal for
+pose optimization is a conditional prior, one that depends on
+observables but supplements what cannot be observed (inverse
+kinematics is unidentifiable for a human body model, with many
+possible rotation combinations throughout the kinematic tree
+resulting in the same joint or landmark locations). Such
+a conditional prior is both easy to train and easy to apply:
+RealNVP can use conditioning rather straightforwardly,  and the
+conditioning signal can be obtained through forward kinematics
+&mdash; given a pose estimate, obtain joint (or other keypoint)
+locations, and use the locations for conditioning and optimizing
+towards a new pose estimate, and so on, in the
+expectation-maximization style. A conditional prior with
+de-Gram-Schmidtization is the signal that drives optimization in
+the desired direction.</p>
+<hr>
+<p>It is a good time now, when the problem is understood and a
+solution has been found, to reflect on what made me go with
+the global prior initially. There were two reasons: first, I was
+<em>asked</em> to train a pose prior by the engineering team (and the
+engineering team was motivated by many others who went this way,
+<a href="https://github.com/nghorbani/human_body_prior">VPoser</a> being
+one example), second, being a Bayesian statistician I
+subconsciously recognized a global prior as a desirable part of
+any model. This may be right (at least according to some points of
+view) for posterior inference, but for optimization you want the
+prior signal to drive towards the conditionally optimal solution
+rather than to a global maximum of some distribution, regardless
+of which distribution it is. <em>Lesson learned.</em></p>
+
+  
+
+  
+  <hr>
+  <footer>
+
+  
+    <section>
+    <h4>Share</h4>
+    <nav class="nav sharing-icons">
+      <a class="nav-item" href="https://www.facebook.com/sharer/sharer.php?u=https%3a%2f%2fdtolpin.github.io%2f2026%2f07%2fbetter-model-degrades-performance%2f" title="Share on Facebook"><span class="fab fa-facebook-f fa-2x" aria-hidden="true"></span></a>
+      <a class="nav-item" href="https://www.linkedin.com/shareArticle?mini=true&amp;url=https%3a%2f%2fdtolpin.github.io%2f2026%2f07%2fbetter-model-degrades-performance%2f" title="Share on LinkedIn"><span class="fab fa-linkedin-in fa-2x" aria-hidden="true"></span></a>
+      <a class="nav-item" href="https://twitter.com/intent/tweet?url=https%3a%2f%2fdtolpin.github.io%2f2026%2f07%2fbetter-model-degrades-performance%2f&amp;text=Better%20Model%20Degrades%20Performance" title="Tweet this"><span class="fab fa-twitter fa-2x"></span></a>
+    </nav>
+  </section>
+
+  
+
+  
+  </footer>
+  
+
+</article> 
+
+
+
+        </div> <!-- /.blog-main -->
+
+        <aside class="col-sm-3 ml-auto blog-sidebar">
+  
+
+  
+        <section class="sidebar-module">
+    <h4>Recent Posts</h4>
+    <ol class="list-unstyled">
+
+
+<li><a href="/2026/07/better-model-degrades-performance/">Better Model Degrades Performance</a></li>
+
+<li><a href="/2026/07/claude-slop/">Claude Slop</a></li>
+
+<li><a href="/2022/09/how-data-scientists-fail/">How Data Scientists Fail</a></li>
+
+<li><a href="/2021/08/double-speed-replay/">Double Speed Replay</a></li>
+
+<li><a href="/2021/08/how-to-train-your-program/">How To Train Your Program</a></li>
+
+    </ol>
+  </section>
+
+  
+
+  
+  <section class="sidebar-module">
+    <h4>Links</h4>
+    <ol class="list-unstyled">
+      
+      <li><a href="https://infergo.org/">Infergo</a></li>
+      
+      <li><a href="http://offtopia.net/wp/">Old blog</a></li>
+      
+    </ol>
+  </section>
+  
+</aside>
+
+
+      </div> <!-- /.row -->
+    </div> <!-- /.container -->
+    
+
+    
+    <footer class="blog-footer">
+      <p dir="auto">
+      
+      Blog template created by <a href="https://twitter.com/mdo">@mdo</a>, ported to Hugo by <a href='https://twitter.com/mralanorth'>@mralanorth</a>.
+      
+      </p>
+      <p>
+      <a href="#">Back to top</a>
+      </p>
+    </footer>
+    
+
+    
+    <script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+    <script type="text/x-mathjax-config">MathJax.Hub.Config({ tex2jax: { inlineMath: [['$','$'], ['\\(','\\)']] } });</script>
+
+  </body>
+</html>

@@ -6,8 +6,15 @@
     <description>Recent content in Posts on Offtopia — nothing personal</description>
     <generator>Hugo</generator>
     <language>en-us</language>
-    <lastBuildDate>Mon, 06 Jul 2026 15:32:37 +0300</lastBuildDate>
+    <lastBuildDate>Fri, 10 Jul 2026 17:49:00 +0300</lastBuildDate>
     <atom:link href="https://dtolpin.github.io/posts/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Better Model Degrades Performance</title>
+      <link>https://dtolpin.github.io/2026/07/better-model-degrades-performance/</link>
+      <pubDate>Fri, 10 Jul 2026 17:49:00 +0300</pubDate>
+      <guid>https://dtolpin.github.io/2026/07/better-model-degrades-performance/</guid>
+      <description>&lt;p&gt;Back in the good old days of&#xA;&lt;a href=&#34;https://mc.linkedin.com/company/yoomiverse&#34;&gt;Yoom&lt;/a&gt; I had trained a&#xA;neural density estimator on human body poses, and &lt;a href=&#34;https://www.linkedin.com/in/michal-heker-739767102/&#34;&gt;Michal&#xA;Heker&lt;/a&gt;,&#xA;&lt;a href=&#34;https://www.linkedin.com/in/sefykagarlitsky/&#34;&gt;Sefy Kagarlitsky&lt;/a&gt;&#xA;and yours truly uploaded an &lt;a href=&#34;https://arxiv.org/abs/2507.12138&#34;&gt;arxiv&#xA;paper&lt;/a&gt; about this. One trick&#xA;described in the paper is that for proper density estimation in&#xA;6D rotation space, one needs to &amp;ldquo;de-Gram-Schmidt&amp;rdquo; the training&#xA;data, similarly to the dequantization trick, but for points on a&#xA;lower-dimensional manifold. However, the adoption of this trick was not smooth.&lt;/p&gt;</description>
+    </item>
     <item>
       <title>Claude Slop</title>
       <link>https://dtolpin.github.io/2026/07/claude-slop/</link>
